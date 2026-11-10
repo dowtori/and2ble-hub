@@ -80,6 +80,7 @@ test('existing signup automatically marks both roles in L and keeps K; participa
 
 test('already registered friends do not create ledger rows, private summaries need the correct key', () => {
   const env = environment(); env.ctx.setupReferrals();
+  env.response.appendRow(['', 'ja', 'Other', 'other@example.test', '', 'Instagram', '', 'other', '', '', '선정']);
   const registered = env.post({ referralAction: 'registerOwner', ownerKey: 'b'.repeat(64), name: 'Other', email: 'other@example.test', instagram: 'other' });
   const ownerId = registered.data.owner.id;
   const result = env.post({ referralAction: 'addFriend', ownerId, tiktok: 'referrer' });
@@ -111,21 +112,74 @@ test('status refresh reads the sheets in batches even with 120 pending referrals
   assert.ok(env.counters.reads - previousReads <= 12, 'refresh must not read one range for every friend');
 });
 
-test('referrers can omit email and separate handles do not collide on empty email', () => {
+test('referrers supply only one handle and existing application details identify the payout recipient', () => {
   const env = environment(); env.ctx.setupReferrals();
-  const first = env.post({ referralAction: 'registerOwner', ownerKey: 'e'.repeat(64), name: 'First', tiktok: 'first_referrer' });
-  const second = env.post({ referralAction: 'registerOwner', ownerKey: 'f'.repeat(64), name: 'Second', instagram: 'second_referrer' });
+  env.response.values[1][7] = 'referrer_ig';
+  const first = env.post({ referralAction: 'registerOwner', ownerKey: 'e'.repeat(64), instagram: 'https://www.instagram.com/REFERRER_IG/' });
   assert.equal(first.ok, true);
-  assert.equal(second.ok, true);
-  assert.notEqual(first.data.owner.id, second.data.owner.id);
-  const invalid = env.post({ referralAction: 'registerOwner', ownerKey: '1'.repeat(64), name: 'Third', email: 'invalid-email', tiktok: 'third_referrer' });
-  assert.equal(invalid.code, 'INVALID_EMAIL');
+  const saved = env.sheets.find(s => s.name === '친구추천인').values[1];
+  assert.deepEqual(Array.from(saved).slice(2, 6), ['Owner', 'owner@example.test', 'referrer', 'referrer_ig']);
+  const duplicate = env.post({ referralAction: 'registerOwner', ownerKey: 'f'.repeat(64), tiktok: 'referrer' });
+  assert.equal(duplicate.code, 'OWNER_EXISTS');
 });
 
-test('referrer identity requires a name and at least one social handle', () => {
+test('only selected applicants can create referral links; unknown and unselected handles do not write rows', () => {
   const env = environment(); env.ctx.setupReferrals();
-  const noName = env.post({ referralAction: 'registerOwner', ownerKey: '2'.repeat(64), tiktok: 'named_referrer' });
-  assert.equal(noName.code, 'INVALID_NAME');
+  env.response.appendRow(['', 'ja', 'Waiting', '', '', 'Instagram', '', 'waiting', '', '', '']);
+  for (const instagram of ['unknown', 'waiting', 'referrer']) {
+    const result = env.post({ referralAction: 'registerOwner', ownerKey: '2'.repeat(64), name: 'Forged', email: 'fake@example.test', instagram });
+    assert.equal(result.code, 'INVALID_REFERRER');
+  }
+  assert.equal(env.sheets.find(s => s.name === '친구추천인').getLastRow(), 1);
   const noHandle = env.post({ referralAction: 'registerOwner', ownerKey: '3'.repeat(64), name: 'Referrer' });
   assert.equal(noHandle.code, 'INVALID_HANDLE');
+});
+
+test('client supplied identity does not replace the approved application identity', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const result = env.post({ referralAction: 'registerOwner', ownerKey: '4'.repeat(64), name: 'Forged', email: 'fake@example.test', tiktok: '@REFERRER' });
+  assert.equal(result.ok, true);
+  const saved = env.sheets.find(s => s.name === '친구추천인').values[1];
+  assert.equal(saved[2], 'Owner');
+  assert.equal(saved[3], 'owner@example.test');
+});
+
+test('repeating the same matching request preserves the owner and link', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const data = { referralAction: 'registerOwner', ownerKey: '5'.repeat(64), tiktok: 'referrer' };
+  const first = env.post(data);
+  const second = env.post(data);
+  assert.equal(first.ok, true);
+  assert.equal(second.data.owner.id, first.data.owner.id);
+  assert.equal(env.sheets.find(s => s.name === '친구추천인').getLastRow(), 2);
+});
+
+test('identifying the same approved applicant from a different browser returns the same owner without private history', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  env.response.values[1][7] = 'referrer_ig';
+  const first = env.post({ referralAction: 'identifyOwner', instagram: '@referrer_ig' });
+  const second = env.post({ referralAction: 'identifyOwner', tiktok: 'referrer' });
+  assert.equal(first.ok, true);
+  assert.equal(second.data.owner.id, first.data.owner.id);
+  assert.equal(second.data.owner.handle, 'referrer');
+  assert.equal(second.data.owner.platform, 'tiktok');
+  assert.equal(second.data.friends, undefined);
+  assert.equal(second.data.owner.email, undefined);
+  assert.equal(env.sheets.find(s => s.name === '친구추천인').getLastRow(), 2);
+});
+
+test('a referral link belongs to the submitted friend and can be recovered without duplicating the claim', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const ownerId = env.post({ referralAction: 'registerOwner', ownerKey: '6'.repeat(64), tiktok: 'referrer' }).data.owner.id;
+  const first = env.post({ referralAction: 'addFriend', ownerId, instagram: 'new_friend' });
+  const repeated = env.post({ referralAction: 'addFriend', ownerId, instagram: '@NEW_FRIEND' });
+  assert.equal(first.ok, true);
+  assert.equal(repeated.ok, true);
+  assert.equal(repeated.data.referralId, first.data.referralId);
+  const invite = JSON.parse(env.ctx.doGet({ parameter: { action: 'invite', referralId: first.data.referralId } }).text);
+  assert.equal(invite.ok, true);
+  assert.equal(invite.data.referralId, first.data.referralId);
+  assert.equal(invite.data.email, undefined);
+  assert.equal(invite.data.instagram, undefined);
+  assert.equal(env.sheets.find(s => s.name === '친구추천내역').getLastRow(), 2);
 });
