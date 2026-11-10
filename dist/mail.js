@@ -29,7 +29,8 @@ function renderMailStages() {
       if(plans.length===1)return actions;
       return '<div class="plan-options"><strong>'+esc(group[0].planLabel||'기존 통합 모집')+'</strong>'+actions+'</div>';
     });
-    return '<article class="email-stage"><h3>'+esc(stageTitles[stage]||entries[0].title)+'</h3>'+groups.join('')+'</article>';
+    const selectedDmLink = stage==='confirmed' ? '<a class="button small" href="#selected-dm">선정자 안내 DM 열기</a>' : '';
+    return '<article class="email-stage"><h3>'+esc(stageTitles[stage]||entries[0].title)+'</h3>'+groups.join('')+selectedDmLink+'</article>';
   }).join('');
 }
 renderMailStages();

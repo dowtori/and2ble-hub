@@ -9,7 +9,7 @@ ja: 일본어 발송용 / ko: 한국어 내부 검수용
 .url 파일은 웹 도구·폴더의 바로가기이며 그 안의 데이터나 첨부 파일은 포함하지 않습니다.
 실제 시트 데이터·Drive 자료는 원본에서 권한 확인 후 내려받으세요.
 
-허브: https://siriai-and2ble-operations.dowtoriman.chatgpt.site/#emails
+허브: https://and2ble-hub.vercel.app/#emails
 발송 준비 설명: email-guide.txt
 
 
@@ -39,3 +39,5 @@ ja: 일본어 발송용 / ko: 한국어 내부 검수용
 
 11/9 플랫폼별 모집
 Instagram 또는 TikTok 전용을 고른 뒤 일본어 발송용 또는 한국어 검수용을 엽니다. 최초 모집은 invite, 미신청자 리마인드는 reinvite 파일입니다. 구분 없이 모집할 때만 기존 통합 문안을 사용합니다. Instagram 전용 DM 원문은 dm-ig-ja.txt / dm-ig-ko.txt입니다.
+
+현재 선정 메일은 11/9 수정본 기준입니다. 선정 메일 발송 후 안내 DM은 dm-selected-ja.txt(발송용), dm-selected-ko.txt(검수용)를 사용합니다.
