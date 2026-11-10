@@ -189,13 +189,14 @@
     render('<section class="panel"><h2 id="screen-heading" tabindex="-1">' + T.ownerHeading + '</h2><p class="small">' + T.ownerIntro + '</p>' + form('owner-form', false, false) + support() + '</section>', 0, false);
     var ownerForm = document.getElementById('owner-form');
     try { var saved = JSON.parse(localStorage.getItem(STORAGE) || 'null'); if (saved && /^(instagram|tiktok)$/.test(saved.platform)) { ownerForm.querySelector('[value="' + saved.platform + '"]').checked = true; ownerForm.elements.handle.value = saved.handle || ''; } } catch (_) {}
+    ownerForm.addEventListener('input', function () { if (!ownerForm.elements.handle.value.trim()) { try { localStorage.removeItem(STORAGE); } catch (_) {} } });
     ownerForm.addEventListener('submit', identifyOwner);
   }
   function friendPage(legacy) {
     var identity = legacy ? '' : '<div class="identity"><span>' + T.ownerIdentity + ': <strong>' + (profile.platform === 'instagram' ? 'Instagram' : 'TikTok') + ' @' + escape(profile.handle) + '</strong></span><button class="text-button" id="change-owner" type="button">' + T.changeOwner + '</button></div>';
     render('<section class="panel">' + identity + '<h2 id="screen-heading" tabindex="-1">' + (legacy ? (lang === 'ko' ? '참여할 계정을 입력해 주세요' : '参加するアカウントを入力') : T.friendHeading) + '</h2><p class="small">' + (legacy ? (lang === 'ko' ? '추천 정보를 연결한 다음 캠페인 신청으로 이동합니다.' : '紹介情報を紐づけてから、キャンペーンの申し込みへ進みます。') : T.friendIntro) + '</p>' + form('friend-form', true, legacy) + support() + '</section>', 1, legacy);
     document.getElementById('friend-form').addEventListener('submit', addFriend);
-    var change = document.getElementById('change-owner'); if (change) change.addEventListener('click', function () { profile = null; registration(); focusHeading(); });
+    var change = document.getElementById('change-owner'); if (change) change.addEventListener('click', function () { try { localStorage.removeItem(STORAGE); } catch (_) {} profile = null; registration(); focusHeading(); });
   }
   function linkPage(referralId, friend) {
     var url = new URL(location.pathname, location.origin); url.searchParams.set('ref', referralId); url.searchParams.set('lang', lang);

@@ -2,8 +2,9 @@
 
 ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니다. 별도 빌드나 런타임 의존성 없이 `dist/`를 배포합니다.
 
-- 운영 허브: https://and2ble-hub.vercel.app/ — 운영 맵, DM, 한·일 메일 26종, 체크리스트, 일정, 자료 다운로드
+- 운영 허브: https://and2ble-hub.vercel.app/ — 운영 맵, DM, 한·일 메일 28종, 체크리스트, 일정, 자료 다운로드
 - 간편 모집 메일 도구: https://and2ble-hub.vercel.app/mail-desk/ — 플랫폼별 모집·재참여 메일 준비
+- 가이드 변경·친구추천 공지 메일: https://and2ble-hub.vercel.app/#guide-update — 일본어 발송용·한국어 검수용
 - 공개 GitHub 저장소: https://github.com/dowtori/and2ble-hub
 - 친구추천 일본어: https://and2ble-hub.vercel.app/referral/
 - 친구추천 한국어 검수: https://and2ble-hub.vercel.app/referral/?lang=ko
@@ -16,6 +17,8 @@ ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니�
 2. `npm test`로 기존 선정 안내 6종을 확인합니다.
 3. `main`에 커밋·푸시하면 연결된 Vercel 프로젝트가 자동 배포합니다.
 
+공지 메일을 수정하면 `node scripts/build-announcements.cjs`로 다운로드용 HTML·제목 TXT도 갱신합니다.
+
 로컬 확인은 Node.js 22 이상에서 `npm start`를 실행하고 http://127.0.0.1:4173 에 접속합니다. 설치할 패키지는 없습니다.
 
 ## 파일
@@ -25,7 +28,8 @@ ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니�
 | `dist/index.html` | 허브 화면과 메뉴 |
 | `dist/data.js` | 운영 기준, 자료 링크, 점검 항목, DM |
 | `dist/app.js` | 화면 전환, 점검, 메모, 복사, 내보내기 |
-| `dist/mail-data.js` | 한·일 메일 템플릿 |
+| `dist/mail-data.js` | 기존 한·일 메일 템플릿 |
+| `dist/announcement-data.js` | 가이드 변경·친구추천 오픈 공지 메일 |
 | `dist/mail.js` | 메일 개인화, 미리보기, HTML/EML/TXT 다운로드 |
 | `dist/downloads/` | 운영 자료, 가이드 사본, 전체 ZIP |
 | `dist/mail-desk/index.html` | 간편 모집 메일 도구 전체 소스 |

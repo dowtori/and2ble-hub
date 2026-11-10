@@ -51,3 +51,11 @@ Instagram 등록 음원 구간과 댄스 사용 구간이 달라 별도 설정�
 Instagram 또는 TikTok 전용을 고른 뒤 일본어 발송용 또는 한국어 검수용을 엽니다. 최초 모집은 invite, 미신청자 리마인드는 reinvite 파일입니다. 구분 없이 모집할 때만 기존 통합 문안을 사용합니다. Instagram 전용 DM 원문은 dm-ig-ja.txt / dm-ig-ko.txt입니다.
 
 현재 선정 메일은 11/9 수정본 기준입니다. 선정 메일 발송 후 안내 DM은 dm-selected-ja.txt(발송용), dm-selected-ko.txt(검수용)를 사용합니다.
+
+
+11/10 가이드 변경·친구추천 오픈 공지
+- 허브 첫 화면의 가이드 변경 안내 메일에서 일본어 발송용·한국어 검수용을 선택합니다.
+- guide-update-ja.html / guide-update-ko.html에 9초·16초 부근 엄지 동작 1회 변경과 친구추천 보상 조건을 안내했습니다.
+- 전체 공지용으로 이름 등 개인화 입력 없이 사용할 수 있습니다. 실제 발송 대상은 운영팀이 확인합니다.
+- 일본어 친구추천 공유 링크: https://and2ble-hub.vercel.app/referral/?lang=ja
+- 허브의 친구추천 링크 카드에서 별도로 복사할 수 있습니다.

@@ -20,3 +20,5 @@ dialog{position:fixed;inset:0 0 0 auto;margin:0;max-height:100dvh;height:100dvh;
 
 /* Keep every tool reachable when the mobile navigation has more items. */
 @media(max-width:700px){.sidebar nav{justify-content:flex-start;gap:4px;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:4px}.sidebar nav .nav-item{flex-shrink:0}}
+
+.hub-updates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 28px}.hub-update{background:#fff;border:1px solid var(--line,#e4ded2);border-radius:16px;padding:24px;min-width:0}.hub-update h3{font-size:20px;margin:12px 0}.hub-update p{font-size:13px;line-height:1.8;word-break:keep-all;overflow-wrap:anywhere;color:#6f6a5c;margin:0 0 20px}.public-referral-url{display:block;width:100%;min-width:0;min-height:44px;padding:10px 12px;border:1px solid #c6c9bf;border-radius:8px;background:#f8f7f3;font-size:13px;margin-bottom:12px}.hub-update .dm-actions{margin-top:12px}@media(max-width:800px){.hub-updates{grid-template-columns:1fr}.hub-update{padding:20px}.public-referral-url{font-size:16px}}
