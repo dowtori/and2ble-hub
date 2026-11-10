@@ -7,10 +7,11 @@ const crypto = require('node:crypto');
 
 // Google service boundaries are replaced in memory; registration and referral handlers run unchanged.
 function environment() {
+  const counters = { reads: 0 };
   class Range {
     constructor(sheet, row, col, height = 1, width = 1) { Object.assign(this, { sheet, row, col, height, width }); }
     getSheet() { return this.sheet; }
-    getValues() { return Array.from({ length: this.height }, (_, r) => Array.from({ length: this.width }, (_, c) => this.sheet.values[this.row + r - 1]?.[this.col + c - 1] ?? '')); }
+    getValues() { counters.reads++; return Array.from({ length: this.height }, (_, r) => Array.from({ length: this.width }, (_, c) => this.sheet.values[this.row + r - 1]?.[this.col + c - 1] ?? '')); }
     getValue() { return this.getValues()[0][0]; }
     setValues(values) { values.forEach((row, r) => row.forEach((value, c) => { this.sheet.values[this.row + r - 1] ??= []; this.sheet.values[this.row + r - 1][this.col + c - 1] = value; })); return this; }
     setValue(value) { return this.setValues([[value]]); }
@@ -45,7 +46,7 @@ function environment() {
   vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../backend/generated/Code.gs'), 'utf8'), ctx);
   const post = data => JSON.parse(ctx.doPost({ postData: { contents: JSON.stringify({ requestId: crypto.randomBytes(16).toString('hex'), ...data }) } }).text);
-  return { ctx, post, response, sheets, spreadsheet };
+  return { ctx, post, response, sheets, spreadsheet, counters };
 }
 
 test('existing signup automatically marks both roles in L and keeps K; participation approval adds 2000 once', () => {
@@ -94,4 +95,16 @@ test('private results use opaque request IDs and reject executable JSONP callbac
   const health = env.ctx.doGet({ parameter: { action: 'health', callback: 'siriaiReferral_test' } });
   assert.equal(health.type, 'javascript');
   assert.match(health.text, /^siriaiReferral_test\(/);
+});
+
+test('status refresh reads the sheets in batches even with 120 pending referrals', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const ownerKey = 'd'.repeat(64);
+  const ownerId = env.post({ referralAction: 'registerOwner', ownerKey, name: 'Owner', email: 'owner@example.test', tiktok: 'referrer' }).data.owner.id;
+  const ledger = env.sheets.find(s => s.name === '친구추천내역');
+  for (let i = 0; i < 120; i++) ledger.appendRow([crypto.randomUUID(), new Date().toISOString(), ownerId, `Friend ${i}`, '', `new_friend_${i}`, '', '등록 대기', '', '대기', 0, '', 'request-' + i]);
+  const previousReads = env.counters.reads;
+  const result = env.post({ referralAction: 'summary', ownerId, ownerKey });
+  assert.equal(result.data.summary.total, 120);
+  assert.ok(env.counters.reads - previousReads <= 12, 'refresh must not read one range for every friend');
 });

@@ -254,7 +254,7 @@ function referralTables_(ss) {
   return {
     ownerSheet: os, referralSheet: rs,
     owners: referralRows_(os, REFERRER_HEADERS.length).filter(function (r) { return r[0]; }).map(function (r) { return { id: String(r[0]), createdAt: String(r[1]), name: String(r[2]), email: String(r[3]), tiktok: String(r[4]), instagram: String(r[5]), keyHash: String(r[6]) }; }),
-    referrals: referralRows_(rs, REFERRAL_HEADERS.length).map(function (r, i) { return { row: i + 2, id: String(r[0] || ''), createdAt: String(r[1] || ''), ownerId: String(r[2] || ''), name: String(r[3] || ''), email: String(r[4] || ''), tiktok: String(r[5] || ''), instagram: String(r[6] || ''), approval: String(r[9] || ''), requestId: String(r[12] || '') }; }).filter(function (r) { return r.id; })
+    referrals: referralRows_(rs, REFERRAL_HEADERS.length).map(function (r, i) { return { row: i + 2, id: String(r[0] || ''), createdAt: String(r[1] || ''), ownerId: String(r[2] || ''), name: String(r[3] || ''), email: String(r[4] || ''), tiktok: String(r[5] || ''), instagram: String(r[6] || ''), storedStatus: String(r[7] || ''), storedRows: String(r[8] || ''), approval: String(r[9] || ''), storedReward: Number(r[10] || 0), storedMemo: String(r[11] || ''), requestId: String(r[12] || '') }; }).filter(function (r) { return r.id; })
   };
 }
 function referralOwner_(tables, data) {
@@ -273,9 +273,9 @@ function syncReferralState_(ss) {
     var memo = item.status === 'duplicate' ? '같은 참여자는 최초 접수된 추천 1건만 인정합니다.' : item.status === 'review' ? '입력 계정들이 서로 다른 신청자와 일치합니다. 운영팀 대조가 필요합니다.' : '';
     var sh = tables.referralSheet;
     var state = [REFERRAL_LABELS[item.status], item.rows.join(', ')];
-    var old = sh.getRange(item.row, 8, 1, 2).getValues()[0];
+    var old = [item.storedStatus, item.storedRows];
     if (String(old) !== String(state)) sh.getRange(item.row, 8, 1, 2).setValues([state]);
-    var amounts = sh.getRange(item.row, 11, 1, 2).getValues()[0];
+    var amounts = [item.storedReward, item.storedMemo];
     if (Number(amounts[0] || 0) !== item.reward || String(amounts[1] || '') !== memo) sh.getRange(item.row, 11, 1, 2).setValues([[item.reward, memo]]);
   });
   if (target.getLastRow() > 1) {
