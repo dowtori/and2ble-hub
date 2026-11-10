@@ -169,8 +169,8 @@
   function escape(value) { return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function randomId() { return crypto.randomUUID().replace(/-/g, ''); }
   function message(code) { return T.errors[code] || T.errors.DEFAULT; }
-  function guideUrl() { return 'https://and2ble-guideline.vercel.app/guide-' + lang + '.html'; }
-  function applyUrl() { return 'https://and2ble-guideline.vercel.app/' + lang + '.html'; }
+  function guideUrl() { return 'https://and2ble-hub.vercel.app/guideline/guide-' + lang + '.html'; }
+  function applyUrl() { return 'https://and2ble-hub.vercel.app/guideline/' + lang + '.html'; }
   function support() { return '<p class="support">' + T.contact + ' <a href="mailto:sbsiriai@gmail.com">' + T.contactLink + '</a></p>'; }
   function rules() { return '<details class="panel terms"><summary>' + T.rulesHeading + '</summary><ul class="rules">' + T.rules.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ul><p class="notice">' + T.notice + ' <a href="' + guideUrl() + '" target="_blank" rel="noopener noreferrer">' + T.guide + '</a></p></details>'; }
   function hero(invite) { return '<section class="hero"><p class="campaign">AND2BLE · French Kissing</p><h1>' + (invite ? escape(T.inviteTitle) : T.titleParts.map(function (part) { return '<span class="title-phrase">' + escape(part) + '</span>'; }).join(' ')) + '</h1><p class="lead">' + (invite ? T.inviteLead : T.lead) + '</p>' + (invite ? '' : '<div class="reward-line"><span>' + T.per + '</span><strong>' + T.reward + '</strong></div><p class="small">' + T.timing + '</p>') + '</section>'; }

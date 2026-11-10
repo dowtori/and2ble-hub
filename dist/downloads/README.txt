@@ -22,8 +22,8 @@ ja: 일본어 발송용 / ko: 한국어 내부 검수용
 
 
 선정자 상세 가이드 링크 교체 (2026-11-06)
-- 일본어 발송용: https://and2ble-guideline.vercel.app/guide-ja.html
-- 한국어 내부 검수용: https://and2ble-guideline.vercel.app/guide-ko.html
+- 일본어 발송용: https://and2ble-hub.vercel.app/guideline/guide-ja.html
+- 한국어 내부 검수용: https://and2ble-hub.vercel.app/guideline/guide-ko.html
 - 선정 안내 3개 참여 방식 × 2개 언어, 참여 완료 일본어의 가이드 링크, 기존 선정 다운로드를 갱신했습니다.
 - 모집 DM·모집 메일은 신청 가능한 기존 모집 페이지를 유지합니다.
 - guide-selected-ja/ko.html은 상세 가이드 사본이며 이미지·기능은 인터넷이 필요합니다. 원본의 후속 수정은 사본에 자동 반영되지 않습니다.

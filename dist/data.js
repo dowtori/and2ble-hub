@@ -1,13 +1,13 @@
 const LINKS = {
-  "selectedJa": "https://and2ble-guideline.vercel.app/guide-ja.html",
-  "selectedKo": "https://and2ble-guideline.vercel.app/guide-ko.html",
+  "selectedJa": "https://and2ble-hub.vercel.app/guideline/guide-ja.html",
+  "selectedKo": "https://and2ble-hub.vercel.app/guideline/guide-ko.html",
   "sheet": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit?gid=815876664#gid=815876664",
   "dm": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=211412208",
   "response": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=1002",
   "selection": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=962999678",
   "admin": "https://siriai-challenge-desk-mu.vercel.app/#and2ble-french-kissing/overview",
-  "ja": "https://and2ble-guideline.vercel.app/ja.html",
-  "ko": "https://and2ble-guideline.vercel.app/ko.html",
+  "ja": "https://and2ble-hub.vercel.app/guideline/ja.html",
+  "ko": "https://and2ble-hub.vercel.app/guideline/ko.html",
   "ig": "https://and2ble-instagram-guide.vercel.app/?lang=ja",
   "sound": "https://www.tiktok.com/music/French-Kissing-7694241938173904902",
   "originalDrive": "https://drive.google.com/drive/folders/1Ajyhn7RzJML0qyvI23B6JIExz-Wa_GWi?usp=drive_link",
@@ -39,7 +39,7 @@ const ISSUES = [
     "area": "모집",
     "owner": "정시예 · 김소현 · 조준석",
     "finding": "11/5 11:53–12:01 단톡방에 캠페인 흐름, 발송·응대 절차, 한·일 최종 DM, 3인별 담당 범위와 시작 링크를 전달했습니다. 사용자가 DM 착수 완료를 확인했습니다.",
-    "action": "배정 범위 내 Instagram DM 발송과 1차 응대를 진행합니다. 부적합 계정은 제외 사유를 기록하고 중복 발송을 방지합니다. 문의는 계정명과 원문을 단톡방에 공유하며, 참여 확정·조건 변경·11/16 이후 게시 문의는 운영팀 확인 후 안내합니다.",
+    "action": "배정 범위 내 Instagram DM 발송과 1차 응대를 진행합니다. 부적합 계정은 제외 사유를 기록하고 중복 발송을 방지합니다. 문의는 계정명과 원문을 단톡방에 공유하며, 참여 확정·조건 변경·11/19 이후 게시 문의는 운영팀 확인 후 안내합니다.",
     "evidence": "11/5 사용자 DM 착수 완료 보고 및 11:53–12:01 단톡방 공지. 전체 DM 발송 완료나 실제 발송 건수를 의미하지 않습니다. 현재 DM 기준본: 앤더블 일본어DM.txt / 앤더블 한국어DM.txt (11/5 최신 첨부).",
     "links": [
       [
@@ -61,16 +61,16 @@ const ISSUES = [
     "id": "dates",
     "priority": "반영 완료",
     "resolved": true,
-    "title": "메일 게시 기간 11/15 통일",
+    "title": "메일 게시 기간 11/18 통일",
     "area": "모집",
     "owner": "모집·선정 안내",
-    "finding": "모집·선정 한·일 초안 4개 모두 2026년 11월 9일–15일로 되어 있음을 확인했습니다. 날짜가 이미 맞아 불필요하게 재저장하지 않았습니다.",
-    "action": "크리에이터 안내 마감은 11/15로 유지합니다. 고객사 전체 운영 일정 11/20과 구분합니다. 참여 완료 메일 2개에는 모집 기간을 추가하지 않습니다.",
-    "evidence": "11/5 사용자 지시, Gmail 임시보관함 6개 본문 확인. 11/20 게시 마감 문구 없음.",
+    "finding": "현재 모집·선정 안내의 게시 기간은 일본 시간 11월 9일~18일입니다.",
+    "action": "크리에이터 안내 마감은 11/18로 연장합니다. 고객사 전체 운영 일정 11/20과 구분합니다. 참여 완료 메일 2개에는 모집 기간을 추가하지 않습니다.",
+    "evidence": "11/10 참여 마감일 변경 요청.",
     "links": [
       [
         "일본어 모집 가이드",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ]
     ]
   },
@@ -87,7 +87,7 @@ const ISSUES = [
     "links": [
       [
         "공개 모집 가이드",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ]
     ]
   },
@@ -104,11 +104,11 @@ const ISSUES = [
     "links": [
       [
         "일본어 가이드",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ],
       [
         "한국어 가이드",
-        "https://and2ble-guideline.vercel.app/ko.html"
+        "https://and2ble-hub.vercel.app/guideline/ko.html"
       ],
       [
         "Instagram 가이드",
@@ -187,7 +187,7 @@ const ISSUES = [
     "area": "콘텐츠",
     "owner": "사용자 + Codex",
     "finding": "선정 확정 메일을 실제 발송하기 전에 개인별 값과 자료 링크를 함께 확인하기로 했습니다. 현재는 이름·참여 방식·게시일·리워드·카드 치환 변수를 유지한 템플릿입니다.",
-    "action": "선정 명단이 정해지면 수신자, 참여 플랫폼, 11/15 이내 게시 예정일, 리워드, 기프트카드, 음원·가이드 링크를 대조합니다. 빈 변수와 잘못된 수신자가 없는지 확인한 후 발송 단계로 진행합니다.",
+    "action": "선정 명단이 정해지면 수신자, 참여 플랫폼, 11/18 이내 게시 예정일, 리워드, 기프트카드, 음원·가이드 링크를 대조합니다. 빈 변수와 잘못된 수신자가 없는지 확인한 후 발송 단계로 진행합니다.",
     "evidence": "11/5 사용자 답변 6번 및 선정 메일 수정 결과. 개인별 선정 확정 메일은 미발송. 팀 공유한 모집 최종본 2통과 구분합니다.",
     "links": [
       [
@@ -237,7 +237,7 @@ const NODES = {
     "role": "SIRIAI 운영 총괄",
     "summary": "DM 발송·응대를 착수했고 기존 참여자 모집 메일 91건을 발송했습니다.",
     "facts": [
-      "크리에이터 게시 안내: 2026.11.09–11.15",
+      "크리에이터 게시 안내: 2026.11.09–11.18",
       "목표: TikTok 80건 + Instagram 100건. 고객사 전체 일정은 11.20까지",
       "DM 3인 발송·응대 착수 · 1,256명 배정 유지",
       "이메일 91건 발송: 90건 발송완료 / 1건 수신함 용량 초과 반송"
@@ -284,7 +284,7 @@ const NODES = {
       "정시예 2~420행 419명 / 조준석 421~839행 419명 / 김소현 840~1257행 418명",
       "11/5 12:01 담당 범위·최종 문안 전달 및 착수 안내 완료",
       "일본어 모집 메일 91건 개별 발송 · 90건 발송완료 / 반송 1건",
-      "문의 원문 공유 · 참여 확정·조건 변경·11/16 이후 게시 문의는 운영팀 확인"
+      "문의 원문 공유 · 참여 확정·조건 변경·11/19 이후 게시 문의는 운영팀 확인"
     ],
     "links": [
       [
@@ -330,11 +330,11 @@ const NODES = {
     "links": [
       [
         "일본어 가이드",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ],
       [
         "한국어 가이드",
-        "https://and2ble-guideline.vercel.app/ko.html"
+        "https://and2ble-hub.vercel.app/guideline/ko.html"
       ],
       [
         "Instagram 가이드",
@@ -414,7 +414,7 @@ const NODES = {
       ],
       [
         "일본어 신청 페이지",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ]
     ],
     "issues": [
@@ -434,7 +434,7 @@ const NODES = {
       "김소현: 840~1257행 / 418명",
       "발송 전 적합성·중복 확인, 발송 후 시트 상태 기록",
       "문의는 계정명 + 원문으로 공유. 캡처보다 원문 전달 권장",
-      "참여 확정·조건 변경·11/16 이후 게시 문의는 운영팀 확인"
+      "참여 확정·조건 변경·11/19 이후 게시 문의는 운영팀 확인"
     ],
     "links": [
       [
@@ -467,12 +467,12 @@ const NODES = {
       "테스트·운영 데이터 정리 완료 여부 별도 확인",
       "신청은 최종 선정과 구분",
       "선정된 참여자에게 개인별 확정 메일 안내",
-      "크리에이터 안내의 게시 마감은 11/15"
+      "크리에이터 안내의 게시 마감은 11/18"
     ],
     "links": [
       [
         "신청 폼",
-        "https://and2ble-guideline.vercel.app/ja.html#apply"
+        "https://and2ble-hub.vercel.app/guideline/ja.html#apply"
       ],
       [
         "응답 시트",
@@ -498,11 +498,11 @@ const NODES = {
     "links": [
       [
         "일본어",
-        "https://and2ble-guideline.vercel.app/ja.html"
+        "https://and2ble-hub.vercel.app/guideline/ja.html"
       ],
       [
         "한국어",
-        "https://and2ble-guideline.vercel.app/ko.html"
+        "https://and2ble-hub.vercel.app/guideline/ko.html"
       ]
     ],
     "issues": [
@@ -568,7 +568,7 @@ const NODES = {
     "links": [
       [
         "리워드 안내",
-        "https://and2ble-guideline.vercel.app/ja.html#reward"
+        "https://and2ble-hub.vercel.app/guideline/ja.html#reward"
       ],
       [
         "운영 어드민",
@@ -614,8 +614,8 @@ const BRANCHES = [
     ]
   }
 ];
-ISSUES.push({id:'mail-library',priority:'반영 완료',resolved:true,title:'후속 메일 · 다운로드 준비',area:'운영',owner:'내부 운영팀',finding:'모집·선정·참여 완료와 리마인드·보류·종료의 한·일 26개 템플릿을 허브에 포함했습니다. 선정 안내는 Instagram 단독·TikTok 단독·양쪽 참여용으로 분리하며, 양쪽 참여자는 게시일을 각각 입력합니다. 개인별 입력 후 HTML·EML·텍스트 다운로드와 서식 본문 복사를 지원합니다.',action:'기본 회신 기한은 발송 후 24시간이며 11/15를 넘기면 개별 조정합니다. 게시·다른 채널 회신을 확인하고 운영팀이 보류·종료를 결정합니다. 재참여는 11/15 이내 게시 가능·잔여 자리·운영팀 재승인 조건입니다.',evidence:'11/5 사용자 문답 확정. 기존 메일은 Gmail 원본, 후속 문안은 이번 회차에 맞춰 신규 작성. 실제 후속 메일은 미발송.',links:[['이메일 준비','#emails'],['운영 자료 모음','#resources']],revision:2});
-NODES.followup={title:'리마인드 · 보류 · 종료',status:'준비 완료',role:'내부 운영팀',summary:'리마인드 발송 후 24시간 내 회신 여부 확인 → 보류 → 운영팀 최종 종료 판단',facts:['회신 기한은 발송 후 24시간. 11/15를 넘으면 개별 조정','보류 전 게시 여부·다른 채널 회신 확인','보류 후 재참여: 11/15 이내 게시 가능 + 잔여 자리 + 운영팀 재승인','최종 종료는 보류 안내 이후 상태 재확인 후 개별 결정','한·일 6종 후속 메일 준비. 실제 발송·상태 변경은 자동 실행하지 않음'],links:[['후속 이메일 준비','#emails'],['발송 안내 다운로드','downloads/email-guide.txt']],issues:['mail-library']};
+ISSUES.push({id:'mail-library',priority:'반영 완료',resolved:true,title:'후속 메일 · 다운로드 준비',area:'운영',owner:'내부 운영팀',finding:'모집·선정·참여 완료와 리마인드·보류·종료의 한·일 26개 템플릿을 허브에 포함했습니다. 선정 안내는 Instagram 단독·TikTok 단독·양쪽 참여용으로 분리하며, 양쪽 참여자는 게시일을 각각 입력합니다. 개인별 입력 후 HTML·EML·텍스트 다운로드와 서식 본문 복사를 지원합니다.',action:'기본 회신 기한은 발송 후 24시간이며 11/18를 넘기면 개별 조정합니다. 게시·다른 채널 회신을 확인하고 운영팀이 보류·종료를 결정합니다. 재참여는 11/18 이내 게시 가능·잔여 자리·운영팀 재승인 조건입니다.',evidence:'11/5 사용자 문답 확정. 기존 메일은 Gmail 원본, 후속 문안은 이번 회차에 맞춰 신규 작성. 실제 후속 메일은 미발송.',links:[['이메일 준비','#emails'],['운영 자료 모음','#resources']],revision:2});
+NODES.followup={title:'리마인드 · 보류 · 종료',status:'준비 완료',role:'내부 운영팀',summary:'리마인드 발송 후 24시간 내 회신 여부 확인 → 보류 → 운영팀 최종 종료 판단',facts:['회신 기한은 발송 후 24시간. 11/18를 넘으면 개별 조정','보류 전 게시 여부·다른 채널 회신 확인','보류 후 재참여: 11/18 이내 게시 가능 + 잔여 자리 + 운영팀 재승인','최종 종료는 보류 안내 이후 상태 재확인 후 개별 결정','한·일 6종 후속 메일 준비. 실제 발송·상태 변경은 자동 실행하지 않음'],links:[['후속 이메일 준비','#emails'],['발송 안내 다운로드','downloads/email-guide.txt']],issues:['mail-library']};
 BRANCHES.find(b=>b.id==='delivery').children.push('followup');
 for(const id of ['invitation','apply','payment'])NODES[id].links.push(['이메일 준비 · HTML 다운로드','#emails']);
 const DM_ASSIGNMENTS = [
@@ -642,8 +642,8 @@ const DM_ASSIGNMENTS = [
   }
 ];
 const DM_COPY = {
-  "ko": "안녕하세요! 😊\n한국의 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\n\n저희는 &TEAM, ZB1, TXT, SEVENTEEN 등 다양한 K-POP 아티스트의 공식 캠페인을 운영하고 있습니다.\n\n일본에서도 큰 사랑을 받은 IZ*ONE 출신 최예나 님이 소속된 YH엔터테인먼트에서 새롭게 데뷔하는 보이그룹 AND2BLE(앤더블)의 앨범 발매를 기념하여, 신곡 'French Kissing' 공식 댄스 챌린지를 진행하게 되었습니다! ✨\n\n이에 함께 챌린지에 참여해 주실 크리에이터분들을 모집하고 있어, 협업을 제안드리고자 연락드렸습니다. 💖\n\n🎵 【챌린지 안내】\n▫️ 진행 내용: 공식 안무 기반 댄스 챌린지 (약 20초)\n▫️ 업로드 일정: 11/9~11/15\n▫️ 참여 플랫폼: TikTok / Instagram Reels\n\n🎁 【리워드】\n▫️ TikTok 단독: 5,000엔\n▫️ Instagram 단독: 5,000엔\n▫️ 두 플랫폼 참여: 최대 12,000엔\n\n📌 상세 가이드라인 및 신청\nhttps://and2ble-guideline.vercel.app/ja.html\n\n앞으로도 다양한 K-POP 아티스트의 공식 캠페인을 진행할 예정이니, 이번 기회를 통해 좋은 인연으로 이어지길 기대하겠습니다!\n\n긍정적인 검토 부탁드립니다. 💖\n\n감사합니다!\nSIRIAI(시리아이)",
-  "ja": "こんにちは！😊\n韓国のコンテンツエージェンシー「SIRIAI（シリアイ）」です。\n\n私たちは&TEAM、ZB1、TXT、SEVENTEENなど、様々なK-POPアーティストの公式キャンペーンを企画・運営しております。\n\nこの度、日本でも大きな人気を集めたIZ*ONE出身のチェ・イェナさんが所属するYHエンターテインメントから新たにデビューするボーイズグループ「AND2BLE（アンダブル）」のアルバムリリースを記念し、新曲『French Kissing』の公式ダンスチャレンジを実施することとなりました！✨\n\n今回のチャレンジにご参加いただけるクリエイター様を募集しており、ぜひコラボレーションをご提案したくご連絡いたしました。💖\n\n🎵 【チャレンジ概要】\n▫️ 内容：公式振付をベースにしたダンスチャレンジ（約20秒）\n▫️ 投稿期間：11/9〜11/15\n▫️ 対象プラットフォーム：TikTok / Instagram Reels\n\n🎁 【リワード】\n▫️ TikTokのみ：5,000円相当\n▫️ Instagramのみ：5,000円相当\n▫️ 両方に投稿：最大12,000円相当\n\n📌 詳細ガイドライン・お申し込み\nhttps://and2ble-guideline.vercel.app/ja.html\n\n今後も様々なK-POPアーティストの公式キャンペーンを予定しておりますので、今回をきっかけに素敵なご縁が生まれることを楽しみにしております！\n\nぜひ前向きにご検討いただけますと幸いです！💖\n\nどうぞよろしくお願いいたします！\n\nSIRIAI（シリアイ）"
+  "ko": "안녕하세요! 😊\n한국의 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\n\n저희는 &TEAM, ZB1, TXT, SEVENTEEN 등 다양한 K-POP 아티스트의 공식 캠페인을 운영하고 있습니다.\n\n일본에서도 큰 사랑을 받은 IZ*ONE 출신 최예나 님이 소속된 YH엔터테인먼트에서 새롭게 데뷔하는 보이그룹 AND2BLE(앤더블)의 앨범 발매를 기념하여, 신곡 'French Kissing' 공식 댄스 챌린지를 진행하게 되었습니다! ✨\n\n이에 함께 챌린지에 참여해 주실 크리에이터분들을 모집하고 있어, 협업을 제안드리고자 연락드렸습니다. 💖\n\n🎵 【챌린지 안내】\n▫️ 진행 내용: 공식 안무 기반 댄스 챌린지 (약 20초)\n▫️ 업로드 일정: 11/9~11/18\n▫️ 참여 플랫폼: TikTok / Instagram Reels\n\n🎁 【리워드】\n▫️ TikTok 단독: 5,000엔\n▫️ Instagram 단독: 5,000엔\n▫️ 두 플랫폼 참여: 최대 12,000엔\n\n📌 상세 가이드라인 및 신청\nhttps://and2ble-hub.vercel.app/guideline/ja.html\n\n앞으로도 다양한 K-POP 아티스트의 공식 캠페인을 진행할 예정이니, 이번 기회를 통해 좋은 인연으로 이어지길 기대하겠습니다!\n\n긍정적인 검토 부탁드립니다. 💖\n\n감사합니다!\nSIRIAI(시리아이)",
+  "ja": "こんにちは！😊\n韓国のコンテンツエージェンシー「SIRIAI（シリアイ）」です。\n\n私たちは&TEAM、ZB1、TXT、SEVENTEENなど、様々なK-POPアーティストの公式キャンペーンを企画・運営しております。\n\nこの度、日本でも大きな人気を集めたIZ*ONE出身のチェ・イェナさんが所属するYHエンターテインメントから新たにデビューするボーイズグループ「AND2BLE（アンダブル）」のアルバムリリースを記念し、新曲『French Kissing』の公式ダンスチャレンジを実施することとなりました！✨\n\n今回のチャレンジにご参加いただけるクリエイター様を募集しており、ぜひコラボレーションをご提案したくご連絡いたしました。💖\n\n🎵 【チャレンジ概要】\n▫️ 内容：公式振付をベースにしたダンスチャレンジ（約20秒）\n▫️ 投稿期間：11/9〜11/18\n▫️ 対象プラットフォーム：TikTok / Instagram Reels\n\n🎁 【リワード】\n▫️ TikTokのみ：5,000円相当\n▫️ Instagramのみ：5,000円相当\n▫️ 両方に投稿：最大12,000円相当\n\n📌 詳細ガイドライン・お申し込み\nhttps://and2ble-hub.vercel.app/guideline/ja.html\n\n今後も様々なK-POPアーティストの公式キャンペーンを予定しておりますので、今回をきっかけに素敵なご縁が生まれることを楽しみにしております！\n\nぜひ前向きにご検討いただけますと幸いです！💖\n\nどうぞよろしくお願いいたします！\n\nSIRIAI（シリアイ）"
 };
 
 // Recruitment and selected-participant guides serve different stages.
@@ -651,10 +651,10 @@ NODES.guidelines.links.push(["선정자 상세 가이드 · 일본어",LINKS.sel
 NODES.guidelines.facts.push("11/6 선정 이후 안내는 참여자용 상세 가이드로 연결. 모집 링크는 신청 페이지 유지.");
 
 Object.assign(DM_COPY, {
-  "ig-ja": "こんにちは！😊\r\n韓国のコンテンツエージェンシー SIRIAI（シリアイ）です。\r\n\r\n弊社は、&TEAM、ZB1、TXT、SEVENTEENなど、さまざまなK-POPアーティストの公式キャンペーンを運営しております。\r\n\r\nこのたび、日本でも大きな人気を集めたIZ*ONE出身のチェ・イェナさんが所属するYHエンターテインメントから新たにデビューするボーイズグループ AND2BLE（アンダブル） のアルバムリリースを記念して、新曲「French Kissing」の公式ダンスチャレンジを実施することになりました！✨\r\n\r\n現在、こちらのチャレンジにご参加いただけるクリエイター様を募集しており、ぜひコラボレーションをご提案したく、ご連絡いたしました。💖\r\n\r\n🎵 【チャレンジ概要】\r\n▫️ 内容：公式振付をベースにしたダンスチャレンジ（約20秒）\r\n▫️ 投稿期間：11月9日〜11月15日\r\n▫️ 投稿プラットフォーム：Instagram Reels\r\n\r\n🎁 【報酬】\r\n▫️ Instagram：5,000円\r\n\r\n📌 【詳細ガイドライン・お申し込み】\r\nhttps://and2ble-guideline.vercel.app/ja-ig.html\r\n\r\n今後もさまざまなK-POPアーティストの公式キャンペーンを実施していく予定ですので、今回の機会を通じて、素敵なご縁につながれば嬉しく思います！\r\n\r\nぜひ前向きにご検討いただけますと幸いです。💖\r\n\r\nどうぞよろしくお願いいたします！\r\n\r\nSIRIAI（シリアイ）",
-  "ig-ko": "안녕하세요! 😊\r\n한국의 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\r\n\r\n저희는 &TEAM, ZB1, TXT, SEVENTEEN 등 다양한 K-POP 아티스트의 공식 캠페인을 운영하고 있습니다.\r\n\r\n이번에 일본에서도 큰 사랑을 받은 IZ*ONE 출신 최예나 님이 소속된 YH엔터테인먼트에서 새롭게 데뷔하는 보이그룹 AND2BLE(앤더블)의 앨범 발매를 기념하여, 신곡 'French Kissing' 공식 댄스 챌린지를 진행하게 되었습니다! ✨\r\n\r\n현재 해당 챌린지에 참여해 주실 크리에이터분들을 모집하고 있으며, 꼭 함께 협업해 보고 싶어 연락드렸습니다. 💖\r\n\r\n🎵 【챌린지 안내】\r\n▫️ 진행 내용: 공식 안무를 기반으로 한 댄스 챌린지 (약 20초)\r\n▫️ 업로드 일정: 11월 9일 ~ 11월 15일\r\n▫️ 참여 플랫폼: Instagram Reels\r\n\r\n🎁 【리워드】\r\n▫️ Instagram: 5,000엔\r\n\r\n📌 【상세 가이드라인 및 신청】\r\nhttps://and2ble-guideline.vercel.app/ja-ig.html\r\n\r\n앞으로도 다양한 K-POP 아티스트의 공식 캠페인을 진행할 예정이니, 이번 기회를 통해 좋은 인연으로 이어질 수 있기를 기대하겠습니다!\r\n\r\n긍정적인 검토 부탁드립니다. 💖\r\n\r\n감사합니다!\r\nSIRIAI(시리아이)"
+  "ig-ja": "こんにちは！😊\r\n韓国のコンテンツエージェンシー SIRIAI（シリアイ）です。\r\n\r\n弊社は、&TEAM、ZB1、TXT、SEVENTEENなど、さまざまなK-POPアーティストの公式キャンペーンを運営しております。\r\n\r\nこのたび、日本でも大きな人気を集めたIZ*ONE出身のチェ・イェナさんが所属するYHエンターテインメントから新たにデビューするボーイズグループ AND2BLE（アンダブル） のアルバムリリースを記念して、新曲「French Kissing」の公式ダンスチャレンジを実施することになりました！✨\r\n\r\n現在、こちらのチャレンジにご参加いただけるクリエイター様を募集しており、ぜひコラボレーションをご提案したく、ご連絡いたしました。💖\r\n\r\n🎵 【チャレンジ概要】\r\n▫️ 内容：公式振付をベースにしたダンスチャレンジ（約20秒）\r\n▫️ 投稿期間：11月9日〜11月18日\r\n▫️ 投稿プラットフォーム：Instagram Reels\r\n\r\n🎁 【報酬】\r\n▫️ Instagram：5,000円\r\n\r\n📌 【詳細ガイドライン・お申し込み】\r\nhttps://and2ble-hub.vercel.app/guideline/ja-ig.html\r\n\r\n今後もさまざまなK-POPアーティストの公式キャンペーンを実施していく予定ですので、今回の機会を通じて、素敵なご縁につながれば嬉しく思います！\r\n\r\nぜひ前向きにご検討いただけますと幸いです。💖\r\n\r\nどうぞよろしくお願いいたします！\r\n\r\nSIRIAI（シリアイ）",
+  "ig-ko": "안녕하세요! 😊\r\n한국의 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\r\n\r\n저희는 &TEAM, ZB1, TXT, SEVENTEEN 등 다양한 K-POP 아티스트의 공식 캠페인을 운영하고 있습니다.\r\n\r\n이번에 일본에서도 큰 사랑을 받은 IZ*ONE 출신 최예나 님이 소속된 YH엔터테인먼트에서 새롭게 데뷔하는 보이그룹 AND2BLE(앤더블)의 앨범 발매를 기념하여, 신곡 'French Kissing' 공식 댄스 챌린지를 진행하게 되었습니다! ✨\r\n\r\n현재 해당 챌린지에 참여해 주실 크리에이터분들을 모집하고 있으며, 꼭 함께 협업해 보고 싶어 연락드렸습니다. 💖\r\n\r\n🎵 【챌린지 안내】\r\n▫️ 진행 내용: 공식 안무를 기반으로 한 댄스 챌린지 (약 20초)\r\n▫️ 업로드 일정: 11월 9일 ~ 11월 18일\r\n▫️ 참여 플랫폼: Instagram Reels\r\n\r\n🎁 【리워드】\r\n▫️ Instagram: 5,000엔\r\n\r\n📌 【상세 가이드라인 및 신청】\r\nhttps://and2ble-hub.vercel.app/guideline/ja-ig.html\r\n\r\n앞으로도 다양한 K-POP 아티스트의 공식 캠페인을 진행할 예정이니, 이번 기회를 통해 좋은 인연으로 이어질 수 있기를 기대하겠습니다!\r\n\r\n긍정적인 검토 부탁드립니다. 💖\r\n\r\n감사합니다!\r\nSIRIAI(시리아이)"
 });
 Object.assign(DM_COPY, {
-  "selected-ko": "안녕하세요! \nAND2BLE 안내드린 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\n\nAND2BLE 공식 댄스 챌린지 캠페인에 선정되신 것을 다시 한번 축하드립니다! \n\n선정 안내와 함께 콘텐츠 제작 가이드라인을 이메일로 발송해 드렸으나, 혹시 확인하지 못하셨을까 하여 DM으로도 안내드립니다!\n\n메일이 확인되지 않으실 경우, 스팸 메일함도 함께 확인 부탁드립니다. \n\n📌 콘텐츠 제작 가이드라인\n🔗 https://and2ble-guideline.vercel.app/guide-ja.html\n\n가이드라인을 꼼꼼히 확인하신 후, 안내된 일정에 맞춰 콘텐츠 제작 및 업로드 부탁드립니다.\n\n궁금하신 사항이 있으시면 언제든 편하게 문의해 주세요!\n\n감사합니다. 🙇‍♀️",
-  "selected-ja": "こんにちは！\nAND2BLEのキャンペーンをご案内いたしました、韓国のコンテンツエージェンシーSIRIAI（シリアイ）です。\n\nこの度は、AND2BLE公式ダンスチャレンジキャンペーンへのご参加が決定しましたこと、改めておめでとうございます！\n\n参加決定のご案内とともに、コンテンツ制作ガイドラインをメールにてお送りしておりますが、まだご確認いただけていない可能性もあるため、DMでもご連絡させていただきました！\n\nメールが見当たらない場合は、迷惑メールフォルダもあわせてご確認いただけますと幸いです。\n\n📌 コンテンツ制作ガイドライン\n🔗 https://and2ble-guideline.vercel.app/guide-ja.html\n\nガイドラインをよくご確認のうえ、ご案内したスケジュールに沿ってコンテンツの制作・投稿をお願いいたします。\n\nご不明な点がございましたら、いつでもお気軽にお問い合わせください！\n\nどうぞよろしくお願いいたします。🙇‍♀️"
+  "selected-ko": "안녕하세요! \nAND2BLE 안내드린 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\n\nAND2BLE 공식 댄스 챌린지 캠페인에 선정되신 것을 다시 한번 축하드립니다! \n\n선정 안내와 함께 콘텐츠 제작 가이드라인을 이메일로 발송해 드렸으나, 혹시 확인하지 못하셨을까 하여 DM으로도 안내드립니다!\n\n메일이 확인되지 않으실 경우, 스팸 메일함도 함께 확인 부탁드립니다. \n\n📌 콘텐츠 제작 가이드라인\n🔗 https://and2ble-hub.vercel.app/guideline/guide-ja.html\n\n가이드라인을 꼼꼼히 확인하신 후, 안내된 일정에 맞춰 콘텐츠 제작 및 업로드 부탁드립니다.\n\n궁금하신 사항이 있으시면 언제든 편하게 문의해 주세요!\n\n감사합니다. 🙇‍♀️",
+  "selected-ja": "こんにちは！\nAND2BLEのキャンペーンをご案内いたしました、韓国のコンテンツエージェンシーSIRIAI（シリアイ）です。\n\nこの度は、AND2BLE公式ダンスチャレンジキャンペーンへのご参加が決定しましたこと、改めておめでとうございます！\n\n参加決定のご案内とともに、コンテンツ制作ガイドラインをメールにてお送りしておりますが、まだご確認いただけていない可能性もあるため、DMでもご連絡させていただきました！\n\nメールが見当たらない場合は、迷惑メールフォルダもあわせてご確認いただけますと幸いです。\n\n📌 コンテンツ制作ガイドライン\n🔗 https://and2ble-hub.vercel.app/guideline/guide-ja.html\n\nガイドラインをよくご確認のうえ、ご案内したスケジュールに沿ってコンテンツの制作・投稿をお願いいたします。\n\nご不明な点がございましたら、いつでもお気軽にお問い合わせください！\n\nどうぞよろしくお願いいたします。🙇‍♀️"
 });

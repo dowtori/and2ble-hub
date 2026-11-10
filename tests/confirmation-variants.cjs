@@ -7,7 +7,7 @@ for(const lang of ['ja','ko'])for(const plan of ['instagram','tiktok','both']){
  const html=m.html,ja=lang==='ja',both=plan==='both';
  assert(html.includes('00:16'));assert(html.includes(ja?'最後の1〜2秒':'마지막 1~2초'));
  assert(html.includes('https://drive.google.com/drive/folders/1cB-swBzwm-vKxG98LwJRP6DaLqUM-oLV?usp=sharing'));
- assert(html.includes('https://and2ble-guideline.vercel.app/guide-'+lang+'.html'));
+ assert(html.includes('https://and2ble-hub.vercel.app/guideline/guide-'+lang+'.html'));
  assert.equal(html.includes('tiktok.com/music/'),plan!=='instagram');
  assert.equal(html.includes('instagram.com/reels/audio/'),plan!=='tiktok');
  assert.equal(html.includes('and2ble-instagram-guide.vercel.app/?lang='+lang),plan!=='tiktok');

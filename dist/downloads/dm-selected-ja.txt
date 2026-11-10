@@ -8,7 +8,7 @@ AND2BLEのキャンペーンをご案内いたしました、韓国のコンテ�
 メールが見当たらない場合は、迷惑メールフォルダもあわせてご確認いただけますと幸いです。
 
 📌 コンテンツ制作ガイドライン
-🔗 https://and2ble-guideline.vercel.app/guide-ja.html
+🔗 https://and2ble-hub.vercel.app/guideline/guide-ja.html
 
 ガイドラインをよくご確認のうえ、ご案内したスケジュールに沿ってコンテンツの制作・投稿をお願いいたします。
 

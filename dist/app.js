@@ -12,7 +12,7 @@ let currentFilter='all',toastTimer,lastDialogTrigger;
 function notify(message){const el=document.querySelector('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3500);}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch{storageFailed=true;notify('브라우저 저장이 차단되어 있어요. 내보내기로 기록을 보관하세요.');}}
 function renderMap(){
- document.querySelector('#root-node').innerHTML=`<div class="root-wrap"><button class="root-card" data-node="control"><span class="node-kicker">AND2BLE · French Kissing</span><span class="root-arrow" aria-hidden="true">↗</span><h3>SIRIAI 캠페인 운영</h3><span class="chip">모집 진행 중</span><p>목표 180건 · 게시 안내 11.09–11.15</p></button></div>`;
+ document.querySelector('#root-node').innerHTML=`<div class="root-wrap"><button class="root-card" data-node="control"><span class="node-kicker">AND2BLE · French Kissing</span><span class="root-arrow" aria-hidden="true">↗</span><h3>SIRIAI 캠페인 운영</h3><span class="chip">모집 진행 중</span><p>목표 180건 · 게시 안내 11.09–11.18</p></button></div>`;
  document.querySelector('#branches').innerHTML=BRANCHES.map(b=>{const n=NODES[b.id];return `<article class="branch"><div class="branch-card"><button class="node-main" data-node="${b.id}"><div class="branch-top"><span class="branch-symbol">${icon(b.icon)}</span><span class="chip ${statusClass(n.status)}">${n.status}</span></div><h3>${n.title}</h3><p class="node-desc">${n.summary}</p><div class="node-bottom"><span>${b.children.length}개 연결 업무</span><span>상세 ↗</span></div></button><button class="branch-toggle" data-branch="${b.id}" aria-expanded="true" aria-controls="children-${b.id}">하위 업무 접기 −</button></div><div class="children" id="children-${b.id}">${b.children.map(id=>`<button class="leaf" data-node="${id}"><span class="leaf-arrow" aria-hidden="true">↗</span><strong>${NODES[id].title}</strong><span class="chip ${statusClass(NODES[id].status)}">${NODES[id].status}</span></button>`).join('')}</div></article>`}).join('');
 }
 function openNode(id,trigger){const n=NODES[id];if(!n)return;lastDialogTrigger=trigger;
@@ -36,7 +36,7 @@ const RESOURCES=[
  ['신규 DM 발송 시트','정시예 419명 · 조준석 419명 · 김소현 418명','발송·응대 착수 · 1,256명 배정',LINKS.dm],
  ['챌린지 운영 어드민','신청·선정·업로드·검수·지급 상태의 원본 도구','11/5 화면 확인 · 실제 상태는 어드민에서',LINKS.admin],
  ['응답 확인 시트','폼 응답 확인 · 테스트 2행은 실적에서 제외','Google Sheets · 선정 상태 대사 필요',LINKS.response],
- ['일본어 가이드 · 신청 폼','크리에이터에게 보내는 모집·참여 페이지','11/9–11/15 · 간단한 모집 안내',LINKS.ja],
+ ['일본어 가이드 · 신청 폼','크리에이터에게 보내는 모집·참여 페이지','11/9–11/18 · 간단한 모집 안내',LINKS.ja],
  ['한국어 가이드 · 검수용','일본어 페이지와 조건 일치 여부 검수','내부 검수용',LINKS.ko],
  ['선정자 상세 가이드 · 일본어','선정 확정 이후 촬영·게시 기준 안내','11/6 선정 안내 링크 교체',LINKS.selectedJa],
  ['선정자 상세 가이드 · 한국어','일본어 상세 가이드의 내부 검수본','참여자 상세 조건 검수',LINKS.selectedKo],
