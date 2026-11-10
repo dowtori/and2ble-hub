@@ -17,6 +17,11 @@ test('handles normalize @, case and platform URLs without accepting another webs
   assert.throws(() => core.normalizeHandle('https://instagram.com/reel/123', 'instagram'), /HANDLE/);
 });
 
+test('historical TikTok display titles in the live sheet match their embedded handle', () => {
+  assert.equal(core.normalizeHandle('NAGISA🐰🫧 (@nagisa__n) | TikTok', 'tiktok'), 'nagisa__n');
+  assert.equal(core.checkFriend({ tiktok: 'nagisa__n' }, owner, [application({ tiktok: 'NAGISA🐰🫧 (@nagisa__n) | TikTok' })], []).code, 'ALREADY_REGISTERED');
+});
+
 test('an existing registration on either handle blocks a referral', () => {
   assert.equal(typeof core.checkFriend, 'function');
   assert.equal(core.checkFriend({ tiktok: 'new', instagram: 'existing' }, owner, [application({ tiktok: '', instagram: 'existing' })], []).code, 'ALREADY_REGISTERED');

@@ -9,6 +9,9 @@ var ReferralCore = (function () {
       var match = text.match(pattern);
       if (!match) throw new Error('INVALID_HANDLE');
       text = decodeURIComponent(match[1]);
+    } else {
+      var displayMatch = text.match(/\(@([a-z0-9_.]+)\)(?:\s*\|\s*(?:TikTok|Instagram))?$/i);
+      if (displayMatch) text = displayMatch[1];
     }
     text = text.replace(/^@/, '').toLowerCase();
     var max = platform === 'tiktok' ? 24 : 30;

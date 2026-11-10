@@ -51,10 +51,18 @@
   function form(id, friend, invited) { return '<form id="' + id + '">' + fields(friend, invited) + (friend ? '<p class="helper">' + T.friendPrivacy + '</p>' : '') + '<p class="error" role="alert" hidden></p><button class="button primary full" type="submit">' + (invited ? T.inviteButton : friend ? T.friendButton : T.ownerButton) + '</button></form>'; }
   function registration() { app.innerHTML = hero(false) + '<section class="panel"><h2>' + T.ownerHeading + '</h2><p class="small">' + T.ownerIntro + '</p>' + form('owner-form', false, false) + '</section>' + rules(); app.setAttribute('aria-busy', 'false'); document.getElementById('owner-form').addEventListener('submit', registerOwner); }
   function shareBlock(link) { return '<div class="share-box"><label for="share-url">' + T.shareLabel + '</label><input class="share-link" id="share-url" readonly value="' + escape(link) + '"><div class="actions"><button type="button" class="button ink" id="copy-link">' + T.copy + '</button></div></div>'; }
-  function dashboard() {
+  function dashboard(clearDraft) {
+    var previousForm = document.getElementById('friend-form'), draft = {}, focusedName = '';
+    if (previousForm && !clearDraft) {
+      ['name', 'email', 'tiktok', 'instagram'].forEach(function (key) { draft[key] = previousForm.elements[key].value; });
+      if (previousForm.contains(document.activeElement)) focusedName = document.activeElement.name || '';
+    }
     var s = state.summary;
     app.innerHTML = hero(false) + '<section class="panel"><h2>' + T.shareHeading + '</h2><p class="small">' + T.shareIntro + '</p>' + shareBlock(shareUrl()) + '<p class="helper">' + T.device + '</p></section><section class="panel"><div class="section-head"><h2>' + T.statusHeading + '</h2><button class="button refresh" id="refresh">' + T.refresh + '</button></div><dl class="stats"><div><dt>' + T.registered + '</dt><dd>' + s.registered + '<small>' + T.people + '</small></dd></div><div><dt>' + T.approved + '</dt><dd>' + s.approved + '<small>' + T.people + '</small></dd></div><div class="amount"><dt>' + T.added + '</dt><dd>¥' + s.reward.toLocaleString() + '</dd></div></dl><p class="helper">' + T.updated + '</p><p id="refresh-error" class="error" role="alert" hidden></p>' + (state.friends.length ? '<ul class="friend-list">' + state.friends.map(function (f) { return '<li><div><strong>' + escape(f.name) + '</strong><div class="handles">' + [f.tiktok ? 'TikTok @' + escape(f.tiktok) : '', f.instagram ? 'Instagram @' + escape(f.instagram) : ''].filter(Boolean).join('<br>') + '</div></div><div><span class="status ' + escape(f.status) + '">' + escape(T.statuses[f.status] || T.statuses.review) + '</span>' + (f.reward ? '<span class="friend-reward">+¥' + f.reward.toLocaleString() + '</span>' : '') + '</div></li>'; }).join('') + '</ul>' : '<p class="empty">' + T.empty + '</p>') + '</section><section class="panel"><h2>' + T.friendHeading + '</h2><p class="small">' + T.friendIntro + '</p>' + form('friend-form', true, false) + '</section>' + rules();
     app.setAttribute('aria-busy', 'false'); document.getElementById('copy-link').addEventListener('click', copyLink); document.getElementById('friend-form').addEventListener('submit', addFriend); document.getElementById('refresh').addEventListener('click', function () { refresh(false); });
+    var nextForm = document.getElementById('friend-form');
+    Object.keys(draft).forEach(function (key) { nextForm.elements[key].value = draft[key]; });
+    if (focusedName && nextForm.elements[focusedName]) nextForm.elements[focusedName].focus();
   }
   function friendPage() { app.innerHTML = hero(true) + '<section class="panel"><h2>' + T.inviteHeading + '</h2>' + form('friend-form', true, true) + '</section>' + rules(); app.setAttribute('aria-busy', 'false'); document.getElementById('friend-form').addEventListener('submit', addFriend); }
   function showToast(text) { var el = document.getElementById('toast'); el.textContent = text; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.hidden = true; }, 4000); }
@@ -95,7 +103,7 @@
     try {
       var data = getValues(formElement); setBusy(formElement, true); await action('addFriend', Object.assign({}, data, { ownerId: inviteOwner || profile.ownerId }));
       if (inviteOwner) { app.innerHTML = hero(true) + '<section class="panel done"><span class="success-mark" aria-hidden="true">✓</span><h2 tabindex="-1" id="done-heading">' + T.doneHeading + '</h2><p>' + T.doneBody + '</p><a class="button primary full" href="' + applyUrl() + '">' + T.apply + '</a>' + support() + '</section>'; document.getElementById('done-heading').focus(); }
-      else { showToast(T.ownerDone); state = await action('summary', profile); dashboard(); }
+      else { showToast(T.ownerDone); state = await action('summary', profile); dashboard(true); }
     } catch (err) { error(formElement, err); } finally { if (formElement.isConnected) setBusy(formElement, false); else busy = false; }
   }
   async function refresh(silent) {
@@ -122,7 +130,11 @@
           submit.disabled = false;
         } catch (_) { error(ownerForm, new Error('SETUP_REQUIRED')); }
       }
-    } catch (err) { app.innerHTML = hero(!!inviteOwner) + '<section class="panel"><p class="error" role="alert">' + escape(message(err.message)) + '</p>' + support() + '</section>'; app.setAttribute('aria-busy', 'false'); }
+    } catch (err) {
+      app.innerHTML = hero(!!inviteOwner) + '<section class="panel"><p class="error" role="alert">' + escape(message(err.message)) + '</p>' + (err.message === 'ACCESS_DENIED' ? '<button class="button" id="restart">' + (lang === 'ko' ? '추천인 등록으로' : '紹介者の登録画面へ') + '</button>' : '') + support() + '</section>'; app.setAttribute('aria-busy', 'false');
+      var restart = document.getElementById('restart');
+      if (restart) restart.addEventListener('click', function () { try { localStorage.removeItem(STORAGE); } catch (_) {} profile = null; state = null; start(); });
+    }
   }
   setInterval(function () { if (!document.hidden && !inviteOwner) refresh(true); }, 60000);
   start();
