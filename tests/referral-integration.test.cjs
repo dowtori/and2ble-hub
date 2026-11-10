@@ -65,6 +65,8 @@ test('existing signup automatically marks both roles in L and keeps K; participa
   assert.equal(env.response.values[2][11], '초대로 들어온');
   assert.match(env.response.notes['3:12'], /referrer/);
   const ledger = env.sheets.find(s => s.name === '친구추천내역');
+  assert.match(ledger.notes['2:3'] || '', /추천인: Owner/);
+  assert.match(ledger.notes['2:3'] || '', /TikTok @referrer/);
   assert.equal(ledger.values[1][10], 0);
   ledger.getRange(2, 10).setValue('인정');
   env.ctx.onEdit({ source: env.spreadsheet, range: ledger.getRange(2, 10) });
@@ -107,4 +109,23 @@ test('status refresh reads the sheets in batches even with 120 pending referrals
   const result = env.post({ referralAction: 'summary', ownerId, ownerKey });
   assert.equal(result.data.summary.total, 120);
   assert.ok(env.counters.reads - previousReads <= 12, 'refresh must not read one range for every friend');
+});
+
+test('referrers can omit email and separate handles do not collide on empty email', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const first = env.post({ referralAction: 'registerOwner', ownerKey: 'e'.repeat(64), name: 'First', tiktok: 'first_referrer' });
+  const second = env.post({ referralAction: 'registerOwner', ownerKey: 'f'.repeat(64), name: 'Second', instagram: 'second_referrer' });
+  assert.equal(first.ok, true);
+  assert.equal(second.ok, true);
+  assert.notEqual(first.data.owner.id, second.data.owner.id);
+  const invalid = env.post({ referralAction: 'registerOwner', ownerKey: '1'.repeat(64), name: 'Third', email: 'invalid-email', tiktok: 'third_referrer' });
+  assert.equal(invalid.code, 'INVALID_EMAIL');
+});
+
+test('referrer identity requires a name and at least one social handle', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const noName = env.post({ referralAction: 'registerOwner', ownerKey: '2'.repeat(64), tiktok: 'named_referrer' });
+  assert.equal(noName.code, 'INVALID_NAME');
+  const noHandle = env.post({ referralAction: 'registerOwner', ownerKey: '3'.repeat(64), name: 'Referrer' });
+  assert.equal(noHandle.code, 'INVALID_HANDLE');
 });

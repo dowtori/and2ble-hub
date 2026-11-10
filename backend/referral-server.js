@@ -10,7 +10,7 @@ function referralId_() { return Utilities.getUuid().replace(/-/g, ''); }
 function referralHash_(key) {
   return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, key).map(function (b) { return ('0' + ((b + 256) % 256).toString(16)).slice(-2); }).join('');
 }
-function referralPerson_(data, requireEmail) {
+function referralPerson_(data) {
   var person = {
     name: String(data.name || '').trim().slice(0, 80),
     email: String(data.email || '').trim().toLowerCase().slice(0, 254),
@@ -18,7 +18,7 @@ function referralPerson_(data, requireEmail) {
     instagram: ReferralCore.normalizeHandle(data.instagram, 'instagram')
   };
   if (!person.tiktok && !person.instagram) referralError_('INVALID_HANDLE');
-  if ((requireEmail && !person.email) || (person.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(person.email))) referralError_('INVALID_EMAIL');
+  if (person.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(person.email)) referralError_('INVALID_EMAIL');
   if (!person.name) person.name = '@' + (person.instagram || person.tiktok);
   return person;
 }
@@ -124,10 +124,11 @@ function referralAction_(data) {
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID), tables = referralTables_(ss), owner;
   if (data.referralAction === 'registerOwner') {
     if (!/^[a-f0-9]{32,128}$/.test(String(data.ownerKey || ''))) referralError_('INVALID_REQUEST');
-    var person = referralPerson_(data, true), hash = referralHash_(data.ownerKey);
+    if (!String(data.name || '').trim()) referralError_('INVALID_NAME');
+    var person = referralPerson_(data), hash = referralHash_(data.ownerKey);
     owner = tables.owners.filter(function (o) { return o.keyHash === hash; })[0];
     if (!owner) {
-      if (tables.owners.some(function (o) { return o.email === person.email || ReferralCore.keys(o).some(function (k) { return ReferralCore.keys(person).indexOf(k) !== -1; }); })) referralError_('OWNER_EXISTS');
+      if (tables.owners.some(function (o) { return (person.email && o.email === person.email) || ReferralCore.keys(o).some(function (k) { return ReferralCore.keys(person).indexOf(k) !== -1; }); })) referralError_('OWNER_EXISTS');
       if (tables.owners.length >= 2000) referralError_('CAPACITY_REVIEW');
       owner = Object.assign({}, person, { id: referralId_(), createdAt: new Date().toISOString(), keyHash: hash });
       tables.ownerSheet.appendRow([owner.id, owner.createdAt, safe(owner.name), safe(owner.email), safe(owner.tiktok), safe(owner.instagram), owner.keyHash]);
@@ -143,11 +144,16 @@ function referralAction_(data) {
     if (!owner) referralError_('INVALID_INVITE');
     var existing = tables.referrals.filter(function (r) { return r.requestId === data.requestId; })[0];
     if (existing) return { referralId: existing.id, alreadySaved: true };
-    var friend = referralPerson_(data, false);
+    var friend = referralPerson_(data);
     var check = ReferralCore.checkFriend(friend, owner, referralRegistrations_(ss), tables.referrals);
     if (check.code !== 'OK') referralError_(check.code);
     var id = referralId_();
     tables.referralSheet.appendRow([id, new Date().toISOString(), owner.id, safe(friend.name), safe(friend.email), safe(friend.tiktok), safe(friend.instagram), REFERRAL_LABELS.pending, '', '대기', 0, '', data.requestId]);
+    tables.referralSheet.getRange(tables.referralSheet.getLastRow(), 3).setNote([
+      '추천인: ' + owner.name,
+      owner.instagram ? 'Instagram @' + owner.instagram : '',
+      owner.tiktok ? 'TikTok @' + owner.tiktok : ''
+    ].filter(Boolean).join('\n'));
     syncReferralState_(ss);
     return { referralId: id };
   }
