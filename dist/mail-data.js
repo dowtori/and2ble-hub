@@ -290,7 +290,7 @@ const EMAIL_TEMPLATES = [
     "stage": "reply",
     "note": "참여 확정 후 일정·참여 의사 확인. 기본 회신 기한 24시간, 11/15 이후는 개별 조정.",
     "subject": "【SIRIAI】投稿スケジュール・ご参加意思の確認｜AND2BLE「French Kissing」ダンスチャレンジ",
-    "html": "<!doctype html><html lang=\"ja\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>投稿スケジュール・ご参加意思の確認</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"font-size:11px;letter-spacing:2px;font-weight:bold;color:#63695d\">SIRIAI CAMPAIGN / AND2BLE</p><h1 style=\"font-size:24px;line-height:1.45;margin:16px 0 24px\">投稿スケジュール・ご参加意思の確認</h1><p style=\"margin:0 0 16px\">{{CREATOR_NAME}} 様<br>いつもお世話になっております。SIRIAI（シリアイ）です。</p><p style=\"margin:0 0 16px\">AND2BLE「French Kissing」ダンスチャレンジの投稿予定とご参加意思を確認するため、ご連絡いたしました。</p><p style=\"margin:0 0 16px\"><strong>ご登録の投稿予定日：{{UPLOAD_DATE_JST}}（JST）<br>ご返信期限：{{REPLY_DEADLINE_JST}}（JST）</strong></p><p style=\"margin:0 0 16px\">お手数ですが、期限までに本メールへ以下のいずれかをご返信ください。一行だけでも構いません。</p><p style=\"margin:0 0 16px\">・予定どおり投稿します<br>・日程変更を希望します：〇月〇日<br>・投稿済みです：投稿URL<br>・今回は参加を見送ります</p><p style=\"margin:0 0 16px\">TikTokとInstagramの両方に参加される場合は、それぞれの予定日、または投稿URLをお知らせください。</p><p style=\"margin:0 0 16px\">投稿期間は<strong>2026年11月9日（月）〜11月15日（日）、日本時間</strong>です。11月16日以降の投稿をご希望の場合は、事前にご相談ください。運営チームで確認し、可否をご案内いたします。</p><p style=\"margin:0 0 16px\">期限までにご返信やご投稿を確認できない場合、運営チームで状況を確認のうえ、ご参加を一旦「保留」とする場合がございます。保留後の再参加は、11月15日までの投稿が可能で、参加枠に空きがある場合に、運営チームの再承認が必要です。</p><p style=\"margin:0 0 16px\">音源設定・制作条件は参加確定メールをご確認ください。Instagramは公式音源を追加し、元の音声100%・追加した公式音源0%に設定してください。<br><a href=\"https://and2ble-instagram-guide.vercel.app/?lang=ja\">Instagram音源設定ガイド</a></p><p style=\"margin:0 0 16px\">行き違いでご返信・ご投稿いただいている場合は、その旨と投稿URLをお知らせください。ご協力のほど、よろしくお願いいたします。</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI キャンペーン運営チーム<br><a href=\"mailto:sbsiriai@gmail.com\" style=\"color:#315d3d\">sbsiriai@gmail.com</a></p></td></tr></table></body></html>",
+    "html": "<!doctype html><html lang=\"ja\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>投稿スケジュール・ご参加意思の確認</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"font-size:11px;letter-spacing:2px;font-weight:bold;color:#63695d\">SIRIAI CAMPAIGN / AND2BLE</p><h1 style=\"font-size:24px;line-height:1.45;margin:16px 0 24px\">投稿スケジュール・ご参加意思の確認</h1><p style=\"margin:0 0 16px\">{{CREATOR_NAME}} 様<br>いつもお世話になっております。SIRIAI（シリアイ）です。</p><p style=\"margin:0 0 16px\">AND2BLE「French Kissing」ダンスチャレンジの投稿予定とご参加意思を確認するため、ご連絡いたしました。</p><p style=\"margin:0 0 16px\"><strong>ご登録の投稿予定日：{{UPLOAD_DATE_JST}}（JST）<br>ご返信期限：{{REPLY_DEADLINE_JST}}（JST）</strong></p><p style=\"margin:0 0 16px\">お手数ですが、期限までに本メールへ以下のいずれかをご返信ください。一行だけでも構いません。</p><p style=\"margin:0 0 16px\">・予定どおり投稿します<br>・日程変更を希望します：〇月〇日<br>・投稿済みです：投稿URL<br>・今回は参加を見送ります</p><p style=\"margin:0 0 16px\">TikTokとInstagramの両方に参加される場合は、それぞれの予定日、または投稿URLをお知らせください。</p><p style=\"margin:0 0 16px\">投稿期間は<strong>2026年11月9日（月）〜11月15日（日）、日本時間</strong>です。11月16日以降の投稿をご希望の場合は、事前にご相談ください。運営チームで確認し、可否をご案内いたします。</p><p style=\"margin:0 0 16px\">期限までにご返信やご投稿を確認できない場合、運営チームで状況を確認のうえ、ご参加を一旦「保留」とする場合がございます。保留後の再参加は、11月15日までの投稿が可能で、参加枠に空きがある場合に、運営チームの再承認が必要です。</p><p style=\"margin:0 0 16px\"><strong>【振付についての追加のお願い】</strong><br>振付ガイド動画の9秒付近・16秒付近（「French Kissing」の部分）で親指を曲げる動きは、2回ではなく1回だけにしてください。これから撮影される方は、この点を反映していただけますと幸いです。</p><p style=\"margin:0 0 16px\">音源設定・制作条件は参加確定メールをご確認ください。Instagramは公式音源を追加し、元の音声100%・追加した公式音源0%に設定してください。<br><a href=\"https://and2ble-instagram-guide.vercel.app/?lang=ja\">Instagram音源設定ガイド</a></p><p style=\"margin:0 0 16px\">行き違いでご返信・ご投稿いただいている場合は、その旨と投稿URLをお知らせください。ご協力のほど、よろしくお願いいたします。</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI キャンペーン運営チーム<br><a href=\"mailto:sbsiriai@gmail.com\" style=\"color:#315d3d\">sbsiriai@gmail.com</a></p></td></tr></table></body></html>",
     "fields": [
       "CREATOR_NAME",
       "UPLOAD_DATE_JST",
@@ -304,7 +304,7 @@ const EMAIL_TEMPLATES = [
     "stage": "reply",
     "note": "참여 확정 후 일정·참여 의사 확인. 기본 회신 기한 24시간, 11/15 이후는 개별 조정.",
     "subject": "[한국어 검수용] [SIRIAI] 리마인드 | AND2BLE French Kissing 댄스 챌린지",
-    "html": "<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>리마인드</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"font-size:11px;letter-spacing:2px;font-weight:bold;color:#63695d\">SIRIAI CAMPAIGN / AND2BLE</p><h1 style=\"font-size:24px;line-height:1.45;margin:16px 0 24px\">리마인드</h1><p style=\"padding:16px;background:#fff4d8\">한국어 검수용 · 일본 크리에이터에게는 일본어 버전을 사용해 주세요.</p><p style=\"margin:0 0 16px\">{{CREATOR_NAME}}님, 안녕하세요. SIRIAI입니다.</p><p style=\"margin:0 0 16px\">AND2BLE 「French Kissing」 댄스 챌린지의 게시 일정과 참여 의사를 확인하고자 연락드립니다.</p><p style=\"margin:0 0 16px\"><strong>등록된 게시 예정일: {{UPLOAD_DATE_JST}} (일본 시간)<br>회신 기한: {{REPLY_DEADLINE_JST}} (일본 시간)</strong></p><p style=\"margin:0 0 16px\">기한까지 이 메일에 아래 중 하나로 답해 주세요. 한 줄로 알려주셔도 됩니다.</p><p style=\"margin:0 0 16px\">· 예정대로 게시합니다<br>· 일정 변경 희망: ○월 ○일<br>· 게시 완료: 게시물 URL<br>· 이번에는 참여가 어렵습니다</p><p style=\"margin:0 0 16px\">양쪽 플랫폼 참여자는 각 플랫폼의 예정일 또는 게시물 URL을 알려주세요.</p><p style=\"margin:0 0 16px\">게시 기간은 <strong>2026년 11월 9일~15일, 일본 시간</strong>입니다. 11/16 이후 게시를 희망하시면 사전 문의해 주세요. 운영팀 확인 후 가능 여부를 안내합니다.</p><p style=\"margin:0 0 16px\">기한까지 회신이나 게시를 확인하지 못하면 운영팀이 상황을 확인한 뒤 참여를 일시 보류할 수 있습니다. 보류 후 재참여는 11/15 이내 게시가 가능하고 잔여 자리가 있을 때 운영팀 재승인이 필요합니다.</p><p style=\"margin:0 0 16px\">음원과 제작 조건은 선정 확정 메일을 확인해 주세요. Instagram은 공식 음원을 추가하고 원본 소리 100%·추가 공식 음원 0%로 설정합니다.<br><a href=\"https://and2ble-instagram-guide.vercel.app/?lang=ko\">Instagram 음원 설정 가이드</a></p><p style=\"margin:0 0 16px\">이미 회신하거나 게시했다면 해당 내용과 게시물 URL을 알려주세요. 협조해 주셔서 감사합니다.</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI 캠페인 운영팀<br><a href=\"mailto:sbsiriai@gmail.com\" style=\"color:#315d3d\">sbsiriai@gmail.com</a></p></td></tr></table></body></html>",
+    "html": "<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>리마인드</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"font-size:11px;letter-spacing:2px;font-weight:bold;color:#63695d\">SIRIAI CAMPAIGN / AND2BLE</p><h1 style=\"font-size:24px;line-height:1.45;margin:16px 0 24px\">리마인드</h1><p style=\"padding:16px;background:#fff4d8\">한국어 검수용 · 일본 크리에이터에게는 일본어 버전을 사용해 주세요.</p><p style=\"margin:0 0 16px\">{{CREATOR_NAME}}님, 안녕하세요. SIRIAI입니다.</p><p style=\"margin:0 0 16px\">AND2BLE 「French Kissing」 댄스 챌린지의 게시 일정과 참여 의사를 확인하고자 연락드립니다.</p><p style=\"margin:0 0 16px\"><strong>등록된 게시 예정일: {{UPLOAD_DATE_JST}} (일본 시간)<br>회신 기한: {{REPLY_DEADLINE_JST}} (일본 시간)</strong></p><p style=\"margin:0 0 16px\">기한까지 이 메일에 아래 중 하나로 답해 주세요. 한 줄로 알려주셔도 됩니다.</p><p style=\"margin:0 0 16px\">· 예정대로 게시합니다<br>· 일정 변경 희망: ○월 ○일<br>· 게시 완료: 게시물 URL<br>· 이번에는 참여가 어렵습니다</p><p style=\"margin:0 0 16px\">양쪽 플랫폼 참여자는 각 플랫폼의 예정일 또는 게시물 URL을 알려주세요.</p><p style=\"margin:0 0 16px\">게시 기간은 <strong>2026년 11월 9일~15일, 일본 시간</strong>입니다. 11/16 이후 게시를 희망하시면 사전 문의해 주세요. 운영팀 확인 후 가능 여부를 안내합니다.</p><p style=\"margin:0 0 16px\">기한까지 회신이나 게시를 확인하지 못하면 운영팀이 상황을 확인한 뒤 참여를 일시 보류할 수 있습니다. 보류 후 재참여는 11/15 이내 게시가 가능하고 잔여 자리가 있을 때 운영팀 재승인이 필요합니다.</p><p style=\"margin:0 0 16px\"><strong>【안무 관련 추가 안내】</strong><br>안무 가이드 영상의 9초와 16초 부근(「French Kissing」 부분)에서 엄지를 굽히는 동작은 각각 한 번만 해주세요. 앞으로 촬영하실 분은 이 내용을 반영해 주시면 감사하겠습니다.</p><p style=\"margin:0 0 16px\">음원과 제작 조건은 선정 확정 메일을 확인해 주세요. Instagram은 공식 음원을 추가하고 원본 소리 100%·추가 공식 음원 0%로 설정합니다.<br><a href=\"https://and2ble-instagram-guide.vercel.app/?lang=ko\">Instagram 음원 설정 가이드</a></p><p style=\"margin:0 0 16px\">이미 회신하거나 게시했다면 해당 내용과 게시물 URL을 알려주세요. 협조해 주셔서 감사합니다.</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI 캠페인 운영팀<br><a href=\"mailto:sbsiriai@gmail.com\" style=\"color:#315d3d\">sbsiriai@gmail.com</a></p></td></tr></table></body></html>",
     "fields": [
       "CREATOR_NAME",
       "UPLOAD_DATE_JST",
@@ -359,6 +359,76 @@ const EMAIL_TEMPLATES = [
     "html": "<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>최종 참여 종료</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"font-size:11px;letter-spacing:2px;font-weight:bold;color:#63695d\">SIRIAI CAMPAIGN / AND2BLE</p><h1 style=\"font-size:24px;line-height:1.45;margin:16px 0 24px\">최종 참여 종료</h1><p style=\"padding:16px;background:#fff4d8\">한국어 검수용 · 일본 크리에이터에게는 일본어 버전을 사용해 주세요.</p><p style=\"margin:0 0 16px\">{{CREATOR_NAME}}님, 안녕하세요. SIRIAI입니다.</p><p style=\"margin:0 0 16px\">AND2BLE 「French Kissing」 댄스 챌린지에 관심을 가져주셔서 진심으로 감사합니다.</p><p style=\"margin:0 0 16px\">참여 보류 안내 후에도 회신·게시와 참여 재승인을 확인하지 못해, 운영팀 확인을 거쳐 <strong>이번 챌린지 참여를 종료</strong>합니다.</p><p style=\"margin:0 0 16px\">이미 게시하거나 회신했는데 확인이 엇갈린 경우 이 메일로 해당 내용과 게시물 URL을 알려주세요. 기록을 확인해 개별적으로 처리하겠습니다.</p><p style=\"margin:0 0 16px\">이번 안내로 앞으로의 협업 기회가 끝나는 것은 아닙니다. 다시 함께할 기회가 있다면 안내드리겠습니다.</p><p style=\"margin:0 0 16px\">관심 가져주셔서 진심으로 감사합니다.</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI 캠페인 운영팀<br><a href=\"mailto:sbsiriai@gmail.com\" style=\"color:#315d3d\">sbsiriai@gmail.com</a></p></td></tr></table></body></html>",
     "fields": [
       "CREATOR_NAME"
+    ]
+  },
+  {
+    "id": "revision-ja",
+    "stage": "revision",
+    "lang": "ja",
+    "title": "게시물 수정 요청",
+    "subject": "ご投稿内容のご確認のお願い",
+    "note": "게시물 검수 후 수정이 필요한 항목을 추가하거나 직접 입력하세요.",
+    "html": "<!doctype html><html lang=\"ja\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>ご投稿内容のご確認のお願い</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"margin:0 0 16px\">{{CREATOR_NAME}} 様</p><p style=\"margin:0 0 16px\">いつもお世話になっております。<br>SIRIAIキャンペーン運営チームです。</p><p style=\"margin:0 0 16px\">この度は、AND2BLE「French Kissing」ダンスチャレンジにご参加いただき、誠にありがとうございます！<br>素敵な動画をご投稿いただき、スタッフ一同大変嬉しく思っております。</p><p style=\"margin:0 0 16px\">ご投稿を確認させていただいたところ、以下の点についてご確認をお願いしたいことがございます。</p><p style=\"margin:0 0 16px;padding:16px;background:#f4f3ef;border-radius:8px\">{{FIX_ITEMS}}</p><p style=\"margin:0 0 16px\">せっかくご投稿いただいたところ、お手数をおかけしてしまい申し訳ございません。</p><p style=\"margin:0 0 16px\">再投稿いただけましたら、新しい投稿URLを本メールにご返信いただけますと幸いです。<br>確認が取れ次第、リワードのお渡しを進めさせていただきます。</p><p style=\"margin:0 0 16px\">改めまして、この度のご参加に心より感謝申し上げます。<br>引き続きどうぞよろしくお願いいたします！</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI キャンペーン運営チーム</p></td></tr></table></body></html>",
+    "fields": [
+      "CREATOR_NAME",
+      "FIX_ITEMS"
+    ],
+    "fixOptions": [
+      {
+        "label": "안무 구간",
+        "text": "・振付の区間：恐れ入りますが、音源の00:16〜00:36（約20秒）の振付で撮影いただき、再度ご投稿いただけますと幸いです。"
+      },
+      {
+        "label": "해시태그",
+        "text": "・ハッシュタグ：恐れ入りますが、キャプションに #AND2BLE #앤더블 #AND2BLE_FrenchKissing をすべて付けていただけますと幸いです。"
+      },
+      {
+        "label": "TikTok 음원",
+        "text": "・音源（TikTok）：恐れ入りますが、公式音源ページの「この楽曲を使う」から、公式音源が表示される形で再度ご投稿いただけますと幸いです。"
+      },
+      {
+        "label": "Instagram 음원",
+        "text": "・音源（Instagram）：恐れ入りますが、公式音源を追加し、元の音声100%・追加した公式音源0%に設定したうえで、再度ご投稿いただけますと幸いです。"
+      },
+      {
+        "label": "양쪽 참여 영상",
+        "text": "・動画：恐れ入りますが、TikTokとInstagramには、衣装と撮影場所が異なる別々の動画をご投稿いただけますと幸いです。"
+      }
+    ]
+  },
+  {
+    "id": "revision-ko",
+    "stage": "revision",
+    "lang": "ko",
+    "title": "게시물 수정 요청",
+    "subject": "[한국어 검수용] 게시물 수정 요청",
+    "note": "게시물 검수 후 수정이 필요한 항목을 추가하거나 직접 입력하세요.",
+    "html": "<!doctype html><html lang=\"ko\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>게시물 수정 요청</title></head><body style=\"margin:0;padding:24px 16px;background:#f4f3ef\"><table role=\"presentation\" style=\"width:100%;max-width:640px;margin:0 auto;background:#fff;border-collapse:collapse\"><tr><td style=\"padding:32px;font-family:Arial,'Yu Gothic',Meiryo,'Malgun Gothic',sans-serif;font-size:15px;line-height:1.85;color:#242620\"><p style=\"margin:0 0 16px\">{{CREATOR_NAME}}님께</p><p style=\"margin:0 0 16px\">안녕하세요.<br>SIRIAI 캠페인 운영팀입니다.</p><p style=\"margin:0 0 16px\">AND2BLE 「French Kissing」 댄스 챌린지에 참여해 주셔서 감사합니다!<br>멋진 영상을 올려주셔서 운영팀 모두 기쁘게 보았습니다.</p><p style=\"margin:0 0 16px\">게시물을 검토한 결과, 아래 사항을 확인해 주시길 부탁드립니다.</p><p style=\"margin:0 0 16px;padding:16px;background:#f4f3ef;border-radius:8px\">{{FIX_ITEMS}}</p><p style=\"margin:0 0 16px\">정성껏 게시해 주셨는데 번거롭게 해드려 죄송합니다.</p><p style=\"margin:0 0 16px\">다시 게시하신 뒤 새 게시물 URL을 이 메일로 회신해 주시면 감사하겠습니다.<br>확인하는 대로 리워드 지급을 진행하겠습니다.</p><p style=\"margin:0 0 16px\">이번 챌린지에 참여해 주셔서 다시 한번 감사드립니다.<br>앞으로도 잘 부탁드립니다!</p><p style=\"margin-top:32px;border-top:1px solid #ddd;padding-top:24px\">SIRIAI 캠페인 운영팀</p></td></tr></table></body></html>",
+    "fields": [
+      "CREATOR_NAME",
+      "FIX_ITEMS"
+    ],
+    "fixOptions": [
+      {
+        "label": "안무 구간",
+        "text": "· 안무 구간: 음원의 00:16~00:36(약 20초) 구간에 맞춰 촬영한 뒤 다시 게시해 주시면 감사하겠습니다."
+      },
+      {
+        "label": "해시태그",
+        "text": "· 해시태그: 캡션에 #AND2BLE #앤더블 #AND2BLE_FrenchKissing 세 가지를 모두 넣어주시면 감사하겠습니다."
+      },
+      {
+        "label": "TikTok 음원",
+        "text": "· 음원(TikTok): 공식 음원 페이지의 ‘이 사운드 사용’에서 공식 음원이 표시되도록 다시 게시해 주시면 감사하겠습니다."
+      },
+      {
+        "label": "Instagram 음원",
+        "text": "· 음원(Instagram): 공식 음원을 추가하고 원본 소리 100%, 추가한 공식 음원 0%로 설정한 뒤 다시 게시해 주시면 감사하겠습니다."
+      },
+      {
+        "label": "양쪽 참여 영상",
+        "text": "· 영상: TikTok과 Instagram에는 의상과 촬영 장소가 모두 다른 별개의 영상을 게시해 주시면 감사하겠습니다."
+      }
     ]
   }
 ];
