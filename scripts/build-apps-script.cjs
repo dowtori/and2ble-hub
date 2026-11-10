@@ -1,0 +1,11 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+let original = fs.readFileSync(path.join(root, 'backend/registration-original.gs'), 'utf8');
+if ((original.match(/function doPost\(e\)/g) || []).length !== 1) throw new Error('Expected one original registration handler');
+original = original.replace('function doPost(e)', 'function registrationDoPost_(e)');
+const source = '// Built from backend/registration-original.gs, referral-core.js and referral-server.js.\n' + original + '\n' + ['referral-core.js', 'referral-server.js'].map(name => fs.readFileSync(path.join(root, 'backend', name), 'utf8')).join('\n');
+new (require('node:vm').Script)(source);
+fs.mkdirSync(path.join(root, 'backend/generated'), { recursive: true });
+fs.writeFileSync(path.join(root, 'backend/generated/Code.gs'), source);
+console.log('Apps Script source built and syntax checked:', source.length, 'characters');
