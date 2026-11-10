@@ -2,8 +2,8 @@
 
 ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니다. 별도 빌드나 런타임 의존성 없이 `dist/`를 배포합니다.
 
-- 운영 허브: `/` — 운영 맵, DM, 한·일 메일 26종, 체크리스트, 일정, 자료 다운로드
-- 간편 모집 메일 도구: `/mail-desk/` — 플랫폼별 모집·재참여 메일 준비
+- 운영 허브: https://and2ble-hub.vercel.app/ — 운영 맵, DM, 한·일 메일 26종, 체크리스트, 일정, 자료 다운로드
+- 간편 모집 메일 도구: https://and2ble-hub.vercel.app/mail-desk/ — 플랫폼별 모집·재참여 메일 준비
 - 공개 GitHub 저장소: https://github.com/dowtori/and2ble-hub
 
 ## 수정과 배포
