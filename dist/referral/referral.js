@@ -20,8 +20,7 @@
       "INVALID_INVITE": "この紹介リンクを確認できませんでした。送り主または運営へお問い合わせください。",
       "SETUP_REQUIRED": "紹介の受付を準備しています。しばらくしてからお試しください。",
       "NETWORK": "受付結果を確認できませんでした。同じ情報を再入力すると、重複登録せずリンクを確認できます。",
-      "DEFAULT": "受付状況を確認できませんでした。時間をおいてお試しいただくか、運営へお問い合わせください。",
-      "INVALID_REFERRER": "参加承認済みの申し込みと一致するアカウントが見つかりません。承認案内を受けたSNSとIDをご確認いただくか、運営へお問い合わせください。"
+      "DEFAULT": "受付状況を確認できませんでした。時間をおいてお試しいただくか、運営へお問い合わせください。"
     },
     "contact": "登録状況や紹介の確認は、運営へのお問い合わせでもご案内します。",
     "contactLink": "メールで問い合わせる",
@@ -50,19 +49,19 @@
     "tiktok": "TikTok ID",
     "handleHelp": "TikTok・Instagramのどちらか1つ以上を入力してください。@付きのIDやプロフィールURLも使えます。",
     "steps": [
-      "本人の確認",
-      "友達の紹介",
+      "紹介者",
+      "友達の情報",
       "リンクを送る"
     ],
-    "platformLabel": "申し込んだSNS",
+    "platformLabel": "あなたのSNS",
     "ownerHandle": "あなたのSNS ID",
-    "ownerHandleHelp": "Instagram・TikTokのうち、申し込みに使ったアカウントを1つ入力してください。",
+    "ownerHandleHelp": "Instagram・TikTokのうち、ご本人のアカウントを1つ入力してください。",
     "friendPrivacy": "運営から参加のご案内をDM・メールでお送りできるよう、連絡できるアカウントを入力してください。メールは任意です。",
     "inviteButton": "登録してキャンペーン申し込みへ",
     "friendButton": "この友達を紹介する",
-    "ownerButton": "確認して友達を紹介する",
-    "ownerHeading": "申し込みに使ったアカウントを確認",
-    "ownerIntro": "参加承認を受けた方がご紹介いただけます。申し込み済みの情報に紹介リワードを紐づけます。",
+    "ownerButton": "友達の情報を入力する",
+    "ownerHeading": "あなたのアカウントを入力",
+    "ownerIntro": "紹介リワードの受け取り先となる、ご本人のSNSアカウントを入力してください。",
     "ownerIdentity": "紹介者",
     "changeOwner": "アカウントを変更",
     "friendHeading": "紹介する友達の情報を入力",
@@ -79,7 +78,11 @@
     "inviteNoBonus": "紹介された方への追加特典はありません。通常の参加リワードは、キャンペーンの条件に沿ってお受け取りいただけます。",
     "copied": "紹介リンクをコピーしました。",
     "copyFallback": "リンクを選択しました。コピーしてください。",
-    "saving": "確認しています…"
+    "saving": "確認しています…",
+    "titleParts": [
+      "友達と、",
+      "もう一度踊ろう。"
+    ]
   },
   "ko": {
     "errors": {
@@ -94,8 +97,7 @@
       "INVALID_INVITE": "이 추천 링크를 확인하지 못했습니다. 친구나 운영팀에 문의해 주세요.",
       "SETUP_REQUIRED": "친구추천 접수를 준비하고 있습니다. 잠시 후 다시 확인해 주세요.",
       "NETWORK": "접수 결과를 확인하지 못했습니다. 같은 정보를 다시 입력하면 중복 저장 없이 링크를 확인할 수 있습니다.",
-      "DEFAULT": "접수 여부를 확인하지 못했습니다. 잠시 후 다시 확인하거나 운영팀에 문의해 주세요.",
-      "INVALID_REFERRER": "승인된 신청 내역과 일치하는 계정을 찾지 못했습니다. 선정 안내를 받은 SNS 종류와 아이디를 확인하거나 운영팀에 문의해 주세요."
+      "DEFAULT": "접수 여부를 확인하지 못했습니다. 잠시 후 다시 확인하거나 운영팀에 문의해 주세요."
     },
     "contact": "친구 등록 여부나 추천 내역은 운영팀에 문의해 확인하셔도 됩니다.",
     "contactLink": "이메일로 문의하기",
@@ -124,24 +126,24 @@
     "tiktok": "TikTok 아이디",
     "handleHelp": "TikTok·Instagram 중 하나 이상 입력해 주세요. @를 붙인 아이디나 프로필 링크도 사용할 수 있어요.",
     "steps": [
-      "본인 확인",
-      "친구 소개",
+      "추천인",
+      "친구 정보",
       "링크 전달"
     ],
-    "platformLabel": "신청한 SNS",
+    "platformLabel": "내 SNS",
     "ownerHandle": "내 SNS 아이디",
-    "ownerHandleHelp": "Instagram 또는 TikTok 중 신청 때 사용한 계정 하나만 입력해 주세요.",
+    "ownerHandleHelp": "Instagram·TikTok 중 본인 계정 하나만 입력해 주세요.",
     "friendPrivacy": "운영팀에서 참여 안내 DM·이메일을 보낼 수 있도록 연락 가능한 계정을 입력해 주세요. 이메일은 선택 사항입니다.",
     "inviteButton": "등록하고 캠페인 신청하기",
     "friendButton": "이 친구 추천하기",
-    "ownerButton": "확인하고 친구 소개하기",
-    "ownerHeading": "신청 때 사용한 계정을 확인해 주세요",
-    "ownerIntro": "승인된 참여자만 친구를 추천할 수 있어요. 기존 신청 정보로 추천 보상을 연결합니다.",
+    "ownerButton": "친구 소개하기",
+    "ownerHeading": "추천인 계정을 입력해 주세요",
+    "ownerIntro": "추천 보상을 받을 본인의 SNS 계정을 입력해 주세요.",
     "ownerIdentity": "추천인",
     "changeOwner": "계정 변경",
-    "friendHeading": "소개할 친구 정보를 입력해 주세요",
+    "friendHeading": "소개할 친구를 입력해 주세요",
     "friendIntro": "친구가 캠페인에 신청하기 전에 등록해 주세요. 다음 화면에서 이 친구에게 보낼 링크를 받을 수 있어요.",
-    "shareHeading": "이 링크를 방금 소개한 친구에게 보내 주세요",
+    "shareHeading": "이 링크를 친구에게 보내 주세요",
     "shareIntro": "추천인과 친구 정보가 연결됐습니다. 친구는 아래 링크에서 캠페인 참여 신청을 하면 됩니다.",
     "shareLabel": "친구에게 보낼 참여 링크",
     "copy": "링크 복사",
@@ -153,7 +155,11 @@
     "inviteNoBonus": "추천받은 친구에게 추가 추천 보상은 없습니다. 기본 참여 리워드는 캠페인 조건에 따라 지급됩니다.",
     "copied": "친구추천 링크를 복사했습니다.",
     "copyFallback": "링크를 선택했습니다. 직접 복사해 주세요.",
-    "saving": "확인하고 있습니다…"
+    "saving": "확인하고 있습니다…",
+    "titleParts": [
+      "친구와 함께,",
+      "한 번 더 춤춰요."
+    ]
   }
 }[lang];
   document.querySelector('.brand').href = applyUrl();
@@ -167,12 +173,12 @@
   function applyUrl() { return 'https://and2ble-guideline.vercel.app/' + lang + '.html'; }
   function support() { return '<p class="support">' + T.contact + ' <a href="mailto:sbsiriai@gmail.com">' + T.contactLink + '</a></p>'; }
   function rules() { return '<details class="panel terms"><summary>' + T.rulesHeading + '</summary><ul class="rules">' + T.rules.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ul><p class="notice">' + T.notice + ' <a href="' + guideUrl() + '" target="_blank" rel="noopener noreferrer">' + T.guide + '</a></p></details>'; }
-  function hero(invite) { return '<section class="hero"><p class="campaign">AND2BLE · French Kissing</p><h1>' + (invite ? T.inviteTitle : T.title) + '</h1><p class="lead">' + (invite ? T.inviteLead : T.lead) + '</p>' + (invite ? '' : '<div class="reward-line"><span>' + T.per + '</span><strong>' + T.reward + '</strong></div><p class="small">' + T.timing + '</p>') + '</section>'; }
+  function hero(invite) { return '<section class="hero"><p class="campaign">AND2BLE · French Kissing</p><h1>' + (invite ? escape(T.inviteTitle) : T.titleParts.map(function (part) { return '<span class="title-phrase">' + escape(part) + '</span>'; }).join(' ')) + '</h1><p class="lead">' + (invite ? T.inviteLead : T.lead) + '</p>' + (invite ? '' : '<div class="reward-line"><span>' + T.per + '</span><strong>' + T.reward + '</strong></div><p class="small">' + T.timing + '</p>') + '</section>'; }
   function fields(invited) {
     return '<div class="fields"><label><span class="field-title">' + (invited ? T.name : T.friendName) + ' <small>(' + T.optional + ')</small></span><input name="name" maxlength="80" autocomplete="off"></label><label><span class="field-title">' + T.email + ' <small>(' + T.optional + ')</small></span><input name="email" type="email" maxlength="254" autocomplete="off"></label><label><span class="field-title">' + T.instagram + '</span><input name="instagram" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="@instagram_id" autocomplete="off"></label><label><span class="field-title">' + T.tiktok + '</span><input name="tiktok" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="@tiktok_id" autocomplete="off"></label></div><p class="helper">' + T.handleHelp + '</p>';
   }
 
-  function steps(current) { return '<ol class="flow-steps" aria-label="' + (lang === 'ko' ? '친구추천 순서' : '紹介の手順') + '">' + T.steps.map(function (text, i) { return '<li' + (i === current ? ' aria-current="step"' : '') + '><span>' + (i + 1) + '</span>' + text + '</li>'; }).join('') + '</ol>'; }
+  function steps(current) { return '<ol class="flow-steps" aria-label="' + (lang === 'ko' ? '친구추천 순서' : '紹介の手順') + '">' + T.steps.map(function (text, i) { return '<li' + (i === current ? ' aria-current="step"' : '') + '><span class="step-number">' + (i + 1) + '</span><span class="step-label">' + text + '</span></li>'; }).join('') + '</ol>'; }
   function render(content, step, invited) { app.innerHTML = (invited || step === 0 ? hero(invited) : '<p class="campaign flow-campaign">AND2BLE · French Kissing</p>') + (invited ? '' : steps(step)) + content + rules(); app.setAttribute('aria-busy', 'false'); }
   function focusHeading() { document.getElementById('screen-heading').focus(); }
   function ownerFields() {
@@ -254,7 +260,7 @@
       }
       registration();
       var ownerForm = document.getElementById('owner-form'), submit = ownerForm.querySelector('[type=submit]'); submit.disabled = true;
-      try { var health = await jsonp({ action: 'health' }); if (!health.ok || health.flow !== 'friend-first') throw new Error('SETUP_REQUIRED'); submit.disabled = false; }
+      try { var health = await jsonp({ action: 'health' }); if (!health.ok || health.flow !== 'friend-first' || health.referrerEligibilityRequired !== false) throw new Error('SETUP_REQUIRED'); submit.disabled = false; }
       catch (_) { error(ownerForm, new Error('SETUP_REQUIRED')); }
     } catch (err) { render('<section class="panel"><p class="error" role="alert">' + escape(message(err.message)) + '</p>' + support() + '</section>', 0, !!(inviteReferral || inviteOwner)); }
   }

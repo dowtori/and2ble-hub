@@ -33,8 +33,8 @@ function referralRows_(sh, count) {
   return sh.getRange(2, 1, sh.getLastRow() - 1, count).getValues();
 }
 function referralRegistrations_(ss) {
-  return referralRows_(referralTarget_(ss), 11).map(function (row, i) {
-    return { row: i + 2, name: String(row[2] || ''), email: String(row[3] || ''), tiktok: String(row[6] || ''), instagram: String(row[7] || ''), selection: String(row[10] || '').trim() };
+  return referralRows_(referralTarget_(ss), 10).map(function (row, i) {
+    return { row: i + 2, name: String(row[2] || ''), email: String(row[3] || ''), tiktok: String(row[6] || ''), instagram: String(row[7] || '') };
   });
 }
 function referralTables_(ss) {
@@ -128,15 +128,14 @@ function referralAction_(data) {
     var supplied = referralPerson_({ tiktok: data.tiktok, instagram: data.instagram });
     var suppliedKeys = ReferralCore.keys(supplied);
     var application = referralRegistrations_(ss).filter(function (r) {
-      return r.selection === '선정' && ReferralCore.keys(r).some(function (key) { return suppliedKeys.indexOf(key) !== -1; });
+      return ReferralCore.keys(r).some(function (key) { return suppliedKeys.indexOf(key) !== -1; });
     })[0];
-    if (!application) referralError_('INVALID_REFERRER');
-    // Use the approved application for payout identity; do not ask for or trust replacement contact details.
-    var person = referralPerson_(application), hash = referralHash_(identifying ? referralId_() + referralId_() : data.ownerKey);
+    // Existing signup details help identify the referrer, but are never an eligibility gate.
+    var person = application ? referralPerson_(application) : supplied, hash = referralHash_(identifying ? referralId_() + referralId_() : data.ownerKey);
     owner = tables.owners.filter(function (o) {
       return identifying ? ReferralCore.keys(o).some(function (key) { return ReferralCore.keys(person).indexOf(key) !== -1; }) : o.keyHash === hash;
     })[0];
-    if (owner && !ReferralCore.keys(owner).some(function (key) { return ReferralCore.keys(person).indexOf(key) !== -1; })) referralError_('INVALID_REFERRER');
+    if (owner && !ReferralCore.keys(owner).some(function (key) { return ReferralCore.keys(person).indexOf(key) !== -1; })) referralError_('ACCESS_DENIED');
     if (!owner) {
       if (tables.owners.some(function (o) { return (person.email && o.email === person.email) || ReferralCore.keys(o).some(function (k) { return ReferralCore.keys(person).indexOf(k) !== -1; }); })) referralError_('OWNER_EXISTS');
       if (tables.owners.length >= 2000) referralError_('CAPACITY_REVIEW');
@@ -208,7 +207,7 @@ function doPost(e) {
 function doGet(e) {
   var p = (e && e.parameter) || {}, result;
   try {
-    if (p.action === 'health') result = { ok: true, version: REFERRAL_VERSION, flow: 'friend-first', rewardPerFriend: 2000 };
+    if (p.action === 'health') result = { ok: true, version: REFERRAL_VERSION, flow: 'friend-first', referrerEligibilityRequired: false, rewardPerFriend: 2000 };
     else if (p.action === 'result' && /^[a-f0-9]{32}$/.test(String(p.requestId || ''))) {
       var savedResult = CacheService.getScriptCache().get('referral-result:' + p.requestId);
       result = savedResult ? JSON.parse(savedResult) : { pending: true };

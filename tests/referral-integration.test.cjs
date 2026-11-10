@@ -123,14 +123,15 @@ test('referrers supply only one handle and existing application details identify
   assert.equal(duplicate.code, 'OWNER_EXISTS');
 });
 
-test('only selected applicants can create referral links; unknown and unselected handles do not write rows', () => {
+test('referrers can proceed with an unregistered or unselected handle without an approval gate', () => {
   const env = environment(); env.ctx.setupReferrals();
   env.response.appendRow(['', 'ja', 'Waiting', '', '', 'Instagram', '', 'waiting', '', '', '']);
   for (const instagram of ['unknown', 'waiting', 'referrer']) {
-    const result = env.post({ referralAction: 'registerOwner', ownerKey: '2'.repeat(64), name: 'Forged', email: 'fake@example.test', instagram });
-    assert.equal(result.code, 'INVALID_REFERRER');
+    const result = env.post({ referralAction: 'identifyOwner', instagram });
+    assert.equal(result.ok, true);
+    assert.equal(result.data.owner.handle, instagram);
   }
-  assert.equal(env.sheets.find(s => s.name === '친구추천인').getLastRow(), 1);
+  assert.equal(env.sheets.find(s => s.name === '친구추천인').getLastRow(), 4);
   const noHandle = env.post({ referralAction: 'registerOwner', ownerKey: '3'.repeat(64), name: 'Referrer' });
   assert.equal(noHandle.code, 'INVALID_HANDLE');
 });
@@ -182,4 +183,13 @@ test('a referral link belongs to the submitted friend and can be recovered witho
   assert.equal(invite.data.email, undefined);
   assert.equal(invite.data.instagram, undefined);
   assert.equal(env.sheets.find(s => s.name === '친구추천내역').getLastRow(), 2);
+});
+
+test('existing-registration abuse is blocked for the referred friend even when the referrer is new', () => {
+  const env = environment(); env.ctx.setupReferrals();
+  const owner = env.post({ referralAction: 'identifyOwner', instagram: 'new_referrer' });
+  assert.equal(owner.ok, true);
+  const result = env.post({ referralAction: 'addFriend', ownerId: owner.data.owner.id, tiktok: 'referrer' });
+  assert.equal(result.code, 'ALREADY_REGISTERED');
+  assert.equal(env.sheets.find(s => s.name === '친구추천내역').getLastRow(), 1);
 });
