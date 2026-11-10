@@ -5,6 +5,8 @@ ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니�
 - 운영 허브: https://and2ble-hub.vercel.app/ — 운영 맵, DM, 한·일 메일 26종, 체크리스트, 일정, 자료 다운로드
 - 간편 모집 메일 도구: https://and2ble-hub.vercel.app/mail-desk/ — 플랫폼별 모집·재참여 메일 준비
 - 공개 GitHub 저장소: https://github.com/dowtori/and2ble-hub
+- 친구추천 일본어: https://and2ble-hub.vercel.app/referral/
+- 친구추천 한국어 검수: https://and2ble-hub.vercel.app/referral/?lang=ko
 
 ## 수정과 배포
 
@@ -27,12 +29,16 @@ ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니�
 | `dist/mail.js` | 메일 개인화, 미리보기, HTML/EML/TXT 다운로드 |
 | `dist/downloads/` | 운영 자료, 가이드 사본, 전체 ZIP |
 | `dist/mail-desk/index.html` | 간편 모집 메일 도구 전체 소스 |
+| `dist/referral/` | 친구추천 등록·공유 링크·등록 여부·추가 리워드 현황 |
+| `backend/` | 기존 Google 신청 웹 앱과 연결하는 추천 대조 소스·운영 설명 |
 | `vercel.json` | Vercel 정적 배포 설정 |
 
 ## 데이터와 이전 범위
 
 기존 허브 전체와 로컬 최신 플랫폼별 모집 문안을 보존했습니다. 기존 ChatGPT 사이트와 원본 폴더는 유지합니다.
 
-체크·메모는 각 사이트 주소의 브라우저 localStorage에 저장됩니다. 기존 ChatGPT 주소의 개인 기록은 새 주소로 자동 이전되지 않습니다. 시트·운영 어드민·외부 가이드는 기존 원본으로 연결되며, 실시간 동기화나 자동 메일 발송 기능은 없습니다. 메일 입력값은 서버에 전송하지 않습니다.
+체크·메모는 각 사이트 주소의 브라우저 localStorage에 저장됩니다. 기존 ChatGPT 주소의 개인 기록은 새 주소로 자동 이전되지 않습니다. 시트·운영 어드민·외부 가이드는 기존 원본으로 연결됩니다. 운영 체크·메모는 시트와 동기화되지 않으며, 메일 입력값은 서버에 전송하지 않습니다. 자동 메일 발송 기능은 없습니다.
+
+친구추천 등록은 기존 신청용 Google 웹 앱을 통해 원본 시트와 자동 대조합니다. 추천인에게는 실제 신규 등록과 참여 인정이 완료된 친구 1명당 2,000엔이 추가되며, 지급은 운영팀이 최종 정산합니다. 추천 관리 방법과 백엔드 배포는 [backend/README.md](backend/README.md)를 참고하세요.
 
 개인 수신자 명단·지급 코드·인증정보와 원본 비공개 첨부 파일은 포함하지 않습니다. 가이드 사본의 외부 이미지·기능은 인터넷 연결이 필요합니다.
