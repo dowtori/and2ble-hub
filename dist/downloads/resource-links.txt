@@ -1,0 +1,39 @@
+sheet
+https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit?gid=815876664#gid=815876664
+
+dm
+https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=211412208
+
+response
+https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=1002
+
+selection
+https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=962999678
+
+admin
+https://siriai-challenge-desk-mu.vercel.app/#and2ble-french-kissing/overview
+
+ja
+https://and2ble-guideline.vercel.app/ja.html
+
+ko
+https://and2ble-guideline.vercel.app/ko.html
+
+ig
+https://and2ble-instagram-guide.vercel.app/?lang=ja
+
+sound
+https://www.tiktok.com/music/French-Kissing-7694241938173904902
+
+originalDrive
+https://drive.google.com/drive/folders/1Ajyhn7RzJML0qyvI23B6JIExz-Wa_GWi?usp=drive_link
+
+mailDrive
+https://drive.google.com/drive/folders/1cB-swBzwm-vKxG98LwJRP6DaLqUM-oLV?usp=sharing
+
+선정자 상세 가이드 링크 교체 (2026-11-06)
+- 일본어 발송용: https://and2ble-guideline.vercel.app/guide-ja.html
+- 한국어 내부 검수용: https://and2ble-guideline.vercel.app/guide-ko.html
+- 선정 안내 3개 참여 방식 × 2개 언어, 참여 완료 일본어의 가이드 링크, 기존 선정 다운로드를 갱신했습니다.
+- 모집 DM·모집 메일은 신청 가능한 기존 모집 페이지를 유지합니다.
+- guide-selected-ja/ko.html은 상세 가이드 사본이며 이미지·기능은 인터넷이 필요합니다. 원본의 후속 수정은 사본에 자동 반영되지 않습니다.

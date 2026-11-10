@@ -1,0 +1,11 @@
+{
+  "name": "siriai-and2ble-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SIRIAI AND2BLE operations hub and mail tools",
+  "scripts": {
+    "test": "node tests/confirmation-variants.cjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
