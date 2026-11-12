@@ -615,8 +615,8 @@ const BRANCHES = [
     ]
   }
 ];
-ISSUES.push({id:'mail-library',priority:'반영 완료',resolved:true,title:'후속 메일 · 다운로드 준비',area:'운영',owner:'내부 운영팀',finding:'모집·선정·참여 완료와 리마인드·보류·종료의 한·일 26개 템플릿을 허브에 포함했습니다. 선정 안내는 Instagram 단독·TikTok 단독·양쪽 참여용으로 분리하며, 양쪽 참여자는 게시일을 각각 입력합니다. 개인별 입력 후 HTML·EML·텍스트 다운로드와 서식 본문 복사를 지원합니다.',action:'기본 회신 기한은 발송 후 24시간이며 11/18를 넘기면 개별 조정합니다. 게시·다른 채널 회신을 확인하고 운영팀이 보류·종료를 결정합니다. 재참여는 11/18 이내 게시 가능·잔여 자리·운영팀 재승인 조건입니다.',evidence:'11/5 사용자 문답 확정. 기존 메일은 Gmail 원본, 후속 문안은 이번 회차에 맞춰 신규 작성. 실제 후속 메일은 미발송.',links:[['이메일 준비','#emails'],['운영 자료 모음','#resources']],revision:2});
-NODES.followup={title:'리마인드 · 보류 · 종료',status:'준비 완료',role:'내부 운영팀',summary:'리마인드 발송 후 24시간 내 회신 여부 확인 → 보류 → 운영팀 최종 종료 판단',facts:['회신 기한은 발송 후 24시간. 11/18를 넘으면 개별 조정','보류 전 게시 여부·다른 채널 회신 확인','보류 후 재참여: 11/18 이내 게시 가능 + 잔여 자리 + 운영팀 재승인','최종 종료는 보류 안내 이후 상태 재확인 후 개별 결정','한·일 6종 후속 메일 준비. 실제 발송·상태 변경은 자동 실행하지 않음'],links:[['후속 이메일 준비','#emails'],['발송 안내 다운로드','downloads/email-guide.txt']],issues:['mail-library']};
+ISSUES.push({id:'mail-library',priority:'반영 완료',resolved:true,title:'후속 메일 · 다운로드 준비',area:'운영',owner:'내부 운영팀',finding:'모집·선정·참여 완료와 리마인드·보류·종료의 한·일 26개 템플릿을 허브에 포함했습니다. 선정 안내는 Instagram 단독·TikTok 단독·양쪽 참여용으로 분리하며, 양쪽 참여자는 게시일을 각각 입력합니다. 개인별 입력 후 HTML·EML·텍스트 다운로드와 서식 본문 복사를 지원합니다.',action:'게시 예정일 다음 날 23:59(일본 시간)까지 회신이 없으면, 실제 게시와 다른 채널 회신을 확인한 뒤 운영팀이 명단에서 제외합니다.',evidence:'11/5 사용자 문답 확정. 기존 메일은 Gmail 원본, 후속 문안은 이번 회차에 맞춰 신규 작성. 실제 후속 메일은 미발송.',links:[['이메일 준비','#emails'],['운영 자료 모음','#resources']],revision:2});
+NODES.followup={title:'리마인드 · 명단 제외',status:'준비 완료',role:'내부 운영팀',summary:'게시 예정일 다음 날까지 회신이 없으면 운영팀이 확인 후 명단에서 제외합니다.',facts:['회신 기한은 게시 예정일 다음 날 23:59(일본 시간)','명단 제외 전에 실제 게시 여부와 다른 채널 회신 확인','필요하면 최종 종료 메일로 안내. 별도로 보류를 결정한 건은 참여 보류 메일 사용'],links:[['후속 이메일 준비','#emails'],['발송 안내 다운로드','downloads/email-guide.txt']],issues:['mail-library']};
 BRANCHES.find(b=>b.id==='delivery').children.push('followup');
 NODES.apply.facts.push('모집 수량이 찬 상태이므로 추가 신청 링크는 운영팀이 사전에 초대한 대상에게만 개별 공유합니다.');
 NODES.apply.links.push(['추가 모집 전용 폼 · 운영 안내','#additional-recruitment']);
