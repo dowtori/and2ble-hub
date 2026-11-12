@@ -7,6 +7,7 @@ const LINKS = {
   "selection": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit#gid=962999678",
   "admin": "https://siriai-challenge-desk-mu.vercel.app/#and2ble-french-kissing/overview",
   "ja": "https://and2ble-hub.vercel.app/guideline/ja.html",
+  "additionalRecruitment": "https://and2ble-guideline.vercel.app/ja-2.html",
   "ko": "https://and2ble-hub.vercel.app/guideline/ko.html",
   "ig": "https://and2ble-instagram-guide.vercel.app/?lang=ja",
   "sound": "https://www.tiktok.com/music/French-Kissing-7694241938173904902",
@@ -617,6 +618,10 @@ const BRANCHES = [
 ISSUES.push({id:'mail-library',priority:'반영 완료',resolved:true,title:'후속 메일 · 다운로드 준비',area:'운영',owner:'내부 운영팀',finding:'모집·선정·참여 완료와 리마인드·보류·종료의 한·일 26개 템플릿을 허브에 포함했습니다. 선정 안내는 Instagram 단독·TikTok 단독·양쪽 참여용으로 분리하며, 양쪽 참여자는 게시일을 각각 입력합니다. 개인별 입력 후 HTML·EML·텍스트 다운로드와 서식 본문 복사를 지원합니다.',action:'기본 회신 기한은 발송 후 24시간이며 11/18를 넘기면 개별 조정합니다. 게시·다른 채널 회신을 확인하고 운영팀이 보류·종료를 결정합니다. 재참여는 11/18 이내 게시 가능·잔여 자리·운영팀 재승인 조건입니다.',evidence:'11/5 사용자 문답 확정. 기존 메일은 Gmail 원본, 후속 문안은 이번 회차에 맞춰 신규 작성. 실제 후속 메일은 미발송.',links:[['이메일 준비','#emails'],['운영 자료 모음','#resources']],revision:2});
 NODES.followup={title:'리마인드 · 보류 · 종료',status:'준비 완료',role:'내부 운영팀',summary:'리마인드 발송 후 24시간 내 회신 여부 확인 → 보류 → 운영팀 최종 종료 판단',facts:['회신 기한은 발송 후 24시간. 11/18를 넘으면 개별 조정','보류 전 게시 여부·다른 채널 회신 확인','보류 후 재참여: 11/18 이내 게시 가능 + 잔여 자리 + 운영팀 재승인','최종 종료는 보류 안내 이후 상태 재확인 후 개별 결정','한·일 6종 후속 메일 준비. 실제 발송·상태 변경은 자동 실행하지 않음'],links:[['후속 이메일 준비','#emails'],['발송 안내 다운로드','downloads/email-guide.txt']],issues:['mail-library']};
 BRANCHES.find(b=>b.id==='delivery').children.push('followup');
+NODES.apply.facts.push('모집 수량이 찬 상태이므로 추가 신청 링크는 운영팀이 사전에 초대한 대상에게만 개별 공유합니다.');
+NODES.apply.links.push(['추가 모집 전용 폼 · 운영 안내','#additional-recruitment']);
+NODES.followup.facts.push('Instagram 게시 예정일 당일이 끝나기 전 또는 예정일 다음 날 미게시가 확인되면 게시 리마인드 DM을 사용합니다.');
+NODES.followup.links.unshift(['Instagram 게시 리마인드 DM','#upload-reminder-dm']);
 for(const id of ['invitation','apply','payment'])NODES[id].links.push(['이메일 준비 · HTML 다운로드','#emails']);
 const DM_ASSIGNMENTS = [
   {
@@ -641,6 +646,24 @@ const DM_ASSIGNMENTS = [
     "url": "https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/edit?gid=211412208#gid=211412208&range=840:840"
   }
 ];
+const UPLOAD_REMINDER = {
+  ja: `こんにちは😊
+「French Kissing」チャレンジにご参加いただき、ありがとうございます！
+
+{{date}}に{{scheduled}}Instagramのご投稿について、ご連絡しました。おかげさまで多くの方にご参加いただき、大きな反響をいただいたため、投稿期限を11月18日（日本時間）まで延長しました。
+
+すでに投稿されていましたら、このメッセージへの返信でリンクをお送りいただけると助かります。まだご準備中でしたら、延長後の期限内で日程を調整できますので、いつ頃投稿できそうかお気軽にお知らせください。撮影や音源の設定などでお困りのことがあれば、投稿までお手伝いしますね。
+
+今回ご参加いただいた皆様には、次のチャレンジの募集が始まる前に、いち早くお声がけする予定です。ぜひ今回のチャレンジで{{name}}様とご一緒できたらうれしいです✨`,
+  ko: `안녕하세요😊
+‘French Kissing’ 챌린지에 함께해 주셔서 감사합니다!
+
+{{date}}로 {{scheduled}} Instagram 게시와 관련해 연락드렸어요. 많은 분들의 뜨거운 참여와 성원에 힘입어 게시 기한이 11월 18일(일본 시간)까지 연장됐습니다.
+
+이미 게시하셨다면 이 메시지에 답장으로 링크만 보내주시면 감사하겠습니다. 아직 준비 중이시라면 연장된 기한 안에서 일정을 조율할 수 있으니, 언제쯤 게시하실 수 있을지 편하게 알려주세요. 촬영이나 음원 설정에서 어려운 점이 있다면 게시까지 함께 도와드릴게요.
+
+이번 챌린지에 참여해 주신 분들께는 다음 챌린지 모집이 시작되기 전에 가장 먼저 연락드릴 예정이에요. {{name}} 님과도 이번에 꼭 함께할 수 있으면 정말 기쁘겠습니다✨`
+};
 const DM_COPY = {
   "ko": "안녕하세요! 😊\n한국의 콘텐츠 에이전시 SIRIAI(시리아이)입니다.\n\n저희는 &TEAM, ZB1, TXT, SEVENTEEN 등 다양한 K-POP 아티스트의 공식 캠페인을 기획·운영하고 있습니다.\n\n이번에 일본에서도 큰 사랑을 받은 IZ*ONE 출신 최예나 님의 소속사 YH엔터테인먼트에서 새롭게 선보이는 보이그룹 AND2BLE(앤더블)의 앨범 발매를 기념해, 신곡 ‘French Kissing’ 공식 댄스 챌린지를 진행하게 되었습니다! ✨\n\n이번 챌린지에 함께해 주실 크리에이터분들을 모집하고 있어, 꼭 협업을 제안드리고 싶어 연락드렸습니다. 💖\n\n🎵 【챌린지 개요】\n▫️ 공식 안무를 바탕으로 한 약 20초 분량의 댄스 챌린지\n▫️ 게시 기간 11/9~11/18\n▫️ 참여 플랫폼 TikTok / Instagram 릴스\n\n🎁 【리워드】\n▫️ TikTok만 게시하면 5,000엔 상당\n▫️ Instagram만 게시하면 5,000엔 상당\n▫️ 두 곳에 게시하면 최대 12,000엔 상당\n▫️ 1명당 +2,000엔 상당｜추천한 친구의 신규 참여 인정 시. 정원이 찰 때까지 몇 명이든 추천 가능 (선정 시 상세 안내)\n\n📌 상세 가이드 및 참여 신청\nhttps://and2ble-hub.vercel.app/guideline/ja.html\n\n앞으로도 다양한 K-POP 아티스트의 공식 캠페인을 진행할 예정이니, 이번 기회를 통해 좋은 인연으로 이어지길 기대합니다!\n\n긍정적으로 검토해 주시면 감사하겠습니다! 💖\n\n잘 부탁드립니다!\n\nSIRIAI(시리아이)",
   "ja": "こんにちは！😊\n韓国のコンテンツエージェンシー「SIRIAI（シリアイ）」です。\n\n私たちは&TEAM、ZB1、TXT、SEVENTEENなど、様々なK-POPアーティストの公式キャンペーンを企画・運営しております。\n\nこの度、日本でも大きな人気を集めたIZ*ONE出身のチェ・イェナさんが所属するYHエンターテインメントから新たにデビューするボーイズグループ「AND2BLE（アンダブル）」のアルバムリリースを記念し、新曲『French Kissing』の公式ダンスチャレンジを実施することとなりました！✨\n\n今回のチャレンジにご参加いただけるクリエイター様を募集しており、ぜひコラボレーションをご提案したくご連絡いたしました。💖\n\n🎵 【チャレンジ概要】\n▫️ 内容：公式振付をベースにしたダンスチャレンジ（約20秒）\n▫️ 投稿期間：11/9〜11/18\n▫️ 対象プラットフォーム：TikTok / Instagram Reels\n\n🎁 【リワード】\n▫️ TikTokのみ：5,000円相当\n▫️ Instagramのみ：5,000円相当\n▫️ 両方に投稿：最大12,000円相当\n▫️ 1人につき＋2,000円相当｜紹介したお友達の新規参加が認定された場合。定員に達するまで何人でも紹介OK（詳細は参加決定時にご案内）\n\n📌 詳細ガイドライン・お申し込み\nhttps://and2ble-hub.vercel.app/guideline/ja.html\n\n今後も様々なK-POPアーティストの公式キャンペーンを予定しておりますので、今回をきっかけに素敵なご縁が生まれることを楽しみにしております！\n\nぜひ前向きにご検討いただけますと幸いです！💖\n\nどうぞよろしくお願いいたします！\n\nSIRIAI（シリアイ）"

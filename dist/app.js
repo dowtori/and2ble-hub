@@ -48,7 +48,7 @@ const RESOURCES=[
 ];
 function resourceDownload(url){const key=Object.keys(LINKS).find(k=>LINKS[k]===url);if(url==='review.md')return ['review.md','Markdown ↓'];if(['sheet','dm','response'].includes(key)){const gid=key==='sheet'?'815876664':key==='dm'?'211412208':'1002';return ['https://docs.google.com/spreadsheets/d/1T1i3U-lNK0yE0dv0L_adKKv5OOw5NY-BT8PGSDDyWYU/export?format=csv&gid='+gid,'CSV 다운로드 ↗'];}if(key==='selectedJa'||key==='selectedKo')return ['downloads/guide-selected-'+(key==='selectedJa'?'ja':'ko')+'.html','상세 가이드 HTML ↓'];if(['ja','ko','ig'].includes(key))return ['downloads/guide-'+key+'.html','가이드 HTML ↓'];return ['downloads/'+key+'.url','원본 바로가기 파일 ↓'];}
 function renderResources(query=''){const q=query.trim().toLowerCase();const extra=[['선정자 안내 일본어 DM','선정 이메일 발송 후 가이드 확인 안내','일본어 발송용','downloads/dm-selected-ja.txt'],['선정자 안내 한국어 DM','선정 이메일 발송 후 가이드 확인 안내','한국어 검수용','downloads/dm-selected-ko.txt'],['Instagram 전용 일본어 DM','Instagram Reels 모집 발송용','친구추천 보상 반영','downloads/dm-ig-ja.txt'],['Instagram 전용 한국어 DM','내부 검수용','친구추천 보상 반영','downloads/dm-ig-ko.txt'],['통합 모집 일본어 DM','친구추천 보상 포함','TXT · 최종본','downloads/dm-ja.txt'],['통합 모집 한국어 DM','내부 확인용 문안','TXT · 최종본','downloads/dm-ko.txt'],['DM 담당 안내','3명별 담당 범위와 시작 링크','단톡방 배분용 TXT','downloads/dm-assignments.txt'],['이메일 발송 준비 안내','HTML·본문 복사·EML 사용법','운영 기준과 단계별 사용 조건','downloads/email-guide.txt'],['운영 일정·기준','게시 일정과 운영 기준표','2026.11.05 기준','downloads/operations.txt']];const rows=[...RESOURCES,...extra].filter(r=>r.slice(0,3).join(' ').toLowerCase().includes(q));document.querySelector('#resource-list').innerHTML=rows.length?rows.map(([title,desc,note,url])=>{const local=url.startsWith('downloads/');const [download,label]=local?[url,'TXT 다운로드 ↓']:resourceDownload(url);return '<article class="resource"><div class="resource-top"><h3>'+esc(title)+'</h3></div><p>'+esc(desc)+'</p><small>'+esc(note)+'</small><div class="dm-actions"><a class="button small" href="'+url+'" target="_blank" rel="noopener noreferrer">원본 보기 ↗</a><a class="button small" href="'+download+'" '+(download.startsWith('https:')?'target="_blank" rel="noopener noreferrer"':'download')+'>'+label+'</a></div>'+(['admin','sound','originalDrive','mailDrive'].some(k=>LINKS[k]===url)?'<p class="resource-help">웹 도구·Drive 폴더는 바로가기 파일을 제공합니다. 실제 자료는 원본에서 권한 확인 후 다운로드하세요.</p>':'')+'</article>';}).join(''):'<div class="empty">검색 결과가 없습니다. 다른 자료 이름을 입력하세요.</div>';}
-function showView(){const selectedDm=location.hash==='#selected-dm';let view=location.hash==='#guide-update'?'emails':selectedDm?'dm':location.hash.slice(1)||'map';if(!['map','dm','emails','checks','schedule','resources'].includes(view))view='map';document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!==`view-${view}`);document.querySelectorAll('[data-view]').forEach(el=>{const active=el.dataset.view===view;el.classList.toggle('active',active);if(active)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current')});if(selectedDm)document.querySelector('#selected-dm').scrollIntoView();}
+function showView(){const anchor=location.hash.slice(1);const anchorViews={'selected-dm':'dm','upload-reminder-dm':'dm','additional-recruitment':'map'};const anchorView=Object.hasOwn(anchorViews,anchor)?anchorViews[anchor]:null;let view=anchor==='guide-update'?'emails':anchorView||anchor||'map';if(!['map','dm','emails','checks','schedule','resources'].includes(view))view='map';document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!==`view-${view}`);document.querySelectorAll('[data-view]').forEach(el=>{const active=el.dataset.view===view;el.classList.toggle('active',active);if(active)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current')});if(anchorView)document.getElementById(anchor).scrollIntoView();}
 document.addEventListener('click',e=>{
  const localLink=e.target.closest('a[href^="#"]');if(localLink&&dialog.open)dialog.close();
  const copy=e.target.closest('[data-copy]');if(copy)copyDmText(copy.dataset.copy);
@@ -68,8 +68,65 @@ renderMap();renderChecks();renderResources();showView();if(storageFailed)notify(
 
 function assignmentMessage(a){return '['+a.name+'님 DM 발송 담당]\n담당 범위: '+a.start+'~'+a.end+'행 / '+a.count+'명\n시작 링크:\n'+a.url;}
 function dmText(key){if(key==='all')return DM_ASSIGNMENTS.map(assignmentMessage).join('\n\n');if(Object.hasOwn(DM_COPY,key))return DM_COPY[key];return assignmentMessage(DM_ASSIGNMENTS[Number(key)]);}
-async function copyDmText(key){const text=dmText(key);try{await navigator.clipboard.writeText(text);notify('내용을 복사했습니다.');}catch{const fallback=document.querySelector('#copy-fallback');fallback.hidden=false;fallback.value=text;fallback.focus();fallback.select();notify('자동 복사가 차단됐습니다. 선택된 내용을 직접 복사하세요.');}}
+async function copyDmText(key){const text=key.startsWith('reminder-')?prepareReminder(key.slice(9)):dmText(key);if(!text)return;try{await navigator.clipboard.writeText(text);notify('내용을 복사했습니다.');}catch{const fallback=document.querySelector('#copy-fallback');fallback.hidden=false;fallback.value=text;fallback.focus();fallback.select();notify('자동 복사가 차단됐습니다. 선택된 내용을 직접 복사하세요.');}}
 function renderDm(){document.querySelector('#dm-assignments').innerHTML=DM_ASSIGNMENTS.map((a,i)=>'<article class="dm-card"><h3>'+a.name+'</h3><p>'+a.start+'~'+a.end+'행 · '+a.count+'명</p><div class="dm-actions"><a class="button" href="'+a.url+'" target="_blank" rel="noopener noreferrer">시작행 열기 ↗</a><button class="button accent" data-copy="'+i+'" aria-label="'+a.name+' 담당 안내 복사">담당 안내 복사</button></div></article>').join('');document.querySelector('#dm-ja').textContent=DM_COPY.ja;document.querySelector('#dm-ko').textContent=DM_COPY.ko;for(const key of ['ig-ja','ig-ko','selected-ja','selected-ko'])document.querySelector('#dm-'+key).textContent=DM_COPY[key];}
 renderDm();
 
-document.addEventListener('click',async e=>{if(!e.target.closest('[data-copy-referral]'))return;const field=document.querySelector('#public-referral-url');try{await navigator.clipboard.writeText(field.value);notify('일본어 친구추천 링크를 복사했습니다.');}catch{field.focus();field.select();notify('선택된 링크를 직접 복사해 주세요.');}});
+const additionalRecruitmentField=document.querySelector('#additional-recruitment-url');
+additionalRecruitmentField.value=LINKS.additionalRecruitment;
+document.querySelector('#additional-recruitment-open').href=LINKS.additionalRecruitment;
+
+const reminderForm=document.querySelector('#upload-reminder-form');
+const reminderName=document.querySelector('#reminder-name');
+const reminderDate=document.querySelector('#reminder-date');
+const jstDateFormat=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'});
+
+function renderReminder(){
+ const name=reminderName.value.trim();
+ const date=reminderDate.validity.valid?reminderDate.value:'';
+ const [,month,day]=date.split('-').map(Number);
+ const past=!date||date<jstDateFormat.format(new Date());
+ const dateJa=date?`${month}月${day}日`:'【投稿予定日】';
+ const dateKo=date?`${month}월 ${day}일`:'[게시 예정일]';
+ const replaceFields=(text,fields)=>text.replace(/\{\{(date|name|scheduled)\}\}/g,(_,key)=>fields[key]);
+ const ja=replaceFields(UPLOAD_REMINDER.ja,{date:dateJa,name:name||'【お名前】',scheduled:past?'予定されていた':'予定されている'});
+ const ko=replaceFields(UPLOAD_REMINDER.ko,{date:dateKo,name:name||'[참여자 이름]',scheduled:past?'예정되어 있던':'예정된'});
+ document.querySelector('#dm-reminder-ja').textContent=ja;
+ document.querySelector('#dm-reminder-ko').textContent=ko;
+ return {ja,ko};
+}
+
+function prepareReminder(lang){
+ reminderName.setCustomValidity(reminderName.value.trim()?'':'참여자 표시 이름을 입력해 주세요.');
+ if(!reminderForm.reportValidity())return '';
+ return renderReminder()[lang];
+}
+
+reminderForm.addEventListener('input',()=>{
+ reminderName.setCustomValidity('');
+ const fallback=document.querySelector('#copy-fallback');
+ fallback.hidden=true;
+ fallback.value='';
+ renderReminder();
+});
+reminderForm.addEventListener('submit',e=>e.preventDefault());
+document.querySelectorAll('[data-download-reminder]').forEach(button=>button.addEventListener('click',()=>{
+ const lang=button.dataset.downloadReminder;
+ const content=prepareReminder(lang);
+ if(!content)return;
+ const url=URL.createObjectURL(new Blob([content+'\n'],{type:'text/plain;charset=utf-8'}));
+ const a=document.createElement('a');
+ a.href=url;
+ a.download=`dm-upload-reminder-${lang}.txt`;
+ a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}));
+renderReminder();
+
+document.addEventListener('click',async e=>{
+ const linkButton=e.target.closest('[data-copy-link]');
+ if(!linkButton)return;
+ const field=document.getElementById(linkButton.dataset.copyLink);
+ try{await navigator.clipboard.writeText(field.value);notify('일본어 링크를 복사했습니다.');}
+ catch{field.focus();field.select();notify('선택된 링크를 직접 복사해 주세요.');}
+});

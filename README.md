@@ -5,6 +5,8 @@ ChatGPT Sites에서 GitHub + Vercel로 이전한 캠페인 운영 허브입니�
 - 운영 허브: https://and2ble-hub.vercel.app/ — 운영 맵, DM, 한·일 메일 28종, 체크리스트, 일정, 자료 다운로드
 - 간편 모집 메일 도구: https://and2ble-hub.vercel.app/mail-desk/ — 플랫폼별 모집·재참여 메일 준비
 - 가이드 변경·친구추천 공지 메일: https://and2ble-hub.vercel.app/#guide-update — 일본어 발송용·한국어 검수용
+- 추가 모집 전용 폼: https://and2ble-hub.vercel.app/#additional-recruitment — 링크는 운영팀이 초대한 대상에게만 개별 공유
+- Instagram 게시 리마인드 DM: https://and2ble-hub.vercel.app/#upload-reminder-dm — 참여자 이름과 기존 게시 예정일을 입력한 후 일본어 발송용·한국어 검수용 문안 복사 및 TXT 다운로드
 - 공개 GitHub 저장소: https://github.com/dowtori/and2ble-hub
 - 친구추천 일본어: https://and2ble-hub.vercel.app/referral/
 - 친구추천 한국어 검수: https://and2ble-hub.vercel.app/referral/?lang=ko
